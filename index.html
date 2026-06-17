@@ -1,1 +1,932 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>KWD | Front-End Developer & White Hat</title>
+
+    <meta
+      name="description"
+      content="سایت شخصی KWD - فرانت‌اند دولوپر، فوتبالیست و هکر کلاه سفید"
+    />
+
+    <meta
+      name="keywords"
+      content="KWD, Frontend Developer, White Hat Hacker, Football, HTML, CSS, JavaScript"
+    />
+
+    <meta name="author" content="KWD" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #07111f;
+        --bg2: #0c1b2e;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-border: rgba(255, 255, 255, 0.12);
+
+        --text: #eef4ff;
+        --muted: #9fb2d0;
+
+        --accent: #5eead4;
+        --accent2: #60a5fa;
+        --danger: #fb7185;
+
+        --radius: 22px;
+
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Vazirmatn", sans-serif;
+        color: var(--text);
+
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(96, 165, 250, 0.16),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(94, 234, 212, 0.12),
+            transparent 28%
+          ),
+          linear-gradient(180deg, var(--bg), var(--bg2));
+
+        min-height: 100vh;
+
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: auto;
+      }
+
+      /* =======================
+   NAVBAR
+======================= */
+
+      .nav {
+        position: sticky;
+        top: 16px;
+        z-index: 100;
+
+        margin-top: 16px;
+
+        backdrop-filter: blur(18px);
+
+        background: rgba(7, 17, 31, 0.55);
+
+        border: 1px solid var(--card-border);
+
+        border-radius: 999px;
+
+        box-shadow: var(--shadow);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 12px 18px;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-badge {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 14px;
+
+        font-weight: 900;
+
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+
+        color: #04111f;
+      }
+
+      .brand-title {
+        font-weight: 800;
+      }
+
+      .brand-sub {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        transition: 0.25s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      /* =======================
+   HERO
+======================= */
+
+      .hero {
+        display: grid;
+
+        grid-template-columns: 1.2fr 0.8fr;
+
+        gap: 28px;
+
+        align-items: center;
+
+        padding: 72px 0 36px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+
+        line-height: 1.05;
+
+        margin-bottom: 16px;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        color: transparent;
+      }
+
+      .hero p {
+        color: var(--muted);
+
+        line-height: 1.9;
+
+        max-width: 58ch;
+
+        margin-bottom: 24px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        margin-bottom: 24px;
+      }
+
+      .btn {
+        border: none;
+
+        min-height: 48px;
+
+        padding: 14px 18px;
+
+        cursor: pointer;
+
+        border-radius: 16px;
+
+        color: var(--text);
+
+        font-weight: 600;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border: 1px solid var(--card-border);
+
+        transition: 0.25s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+
+        background: rgba(94, 234, 212, 0.08);
+
+        border-color: rgba(94, 234, 212, 0.4);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+
+        color: #04111f;
+      }
+
+      /* =======================
+   HERO CARD
+======================= */
+
+      .hero-card {
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 22px;
+
+        border-radius: var(--radius);
+
+        border: 1px solid var(--card-border);
+
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.03)
+        );
+
+        box-shadow: var(--shadow);
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .avatar {
+        width: 78px;
+        height: 78px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 24px;
+
+        font-size: 2rem;
+        font-weight: 900;
+
+        background: linear-gradient(135deg, var(--accent2), var(--accent));
+
+        color: #04111f;
+      }
+
+      .stat-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+        margin-top: 20px;
+      }
+
+      .stat {
+        padding: 14px;
+
+        border-radius: 18px;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border: 1px solid var(--card-border);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+      }
+
+      /* =======================
+   SECTIONS
+======================= */
+
+      section {
+        padding: 34px 0;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 18px;
+      }
+
+      .grid-3 {
+        display: grid;
+        gap: 18px;
+
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        padding: 22px;
+
+        border-radius: var(--radius);
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border: 1px solid var(--card-border);
+
+        box-shadow: var(--shadow);
+
+        transition: 0.25s;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+
+        border-color: rgba(96, 165, 250, 0.3);
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        margin-top: 12px;
+      }
+
+      .tag {
+        padding: 8px 12px;
+
+        border-radius: 999px;
+
+        background: rgba(94, 234, 212, 0.08);
+
+        border: 1px solid rgba(94, 234, 212, 0.18);
+      }
+
+      /* =======================
+   COURSE CARDS
+======================= */
+
+      #products .card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .course-image {
+        width: 100%;
+        height: 220px;
+
+        object-fit: cover;
+
+        border-radius: 12px;
+
+        margin-bottom: 16px;
+      }
+
+      .course-price {
+        margin-top: auto;
+      }
+
+      /* =======================
+   TIMELINE
+======================= */
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .timeline-item {
+        display: grid;
+
+        grid-template-columns: 130px 1fr;
+
+        gap: 16px;
+
+        padding: 18px 20px;
+
+        border-radius: 18px;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border: 1px solid var(--card-border);
+      }
+
+      .timeline-item strong {
+        color: var(--accent);
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .contact-box {
+        padding: 22px;
+
+        border-radius: var(--radius);
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border: 1px solid var(--card-border);
+      }
+
+      .contact-box p {
+        color: var(--muted);
+
+        line-height: 2;
+
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .contact-box a {
+        color: var(--accent);
+      }
+
+      footer {
+        padding: 40px 0;
+
+        text-align: center;
+
+        color: var(--muted);
+      }
+
+      .pulse {
+        display: inline-block;
+
+        width: 10px;
+        height: 10px;
+
+        border-radius: 50%;
+
+        background: var(--accent);
+
+        margin-left: 8px;
+
+        animation: pulse 1.7s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.5);
+        }
+
+        70% {
+          box-shadow: 0 0 0 12px rgba(94, 234, 212, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(94, 234, 212, 0);
+        }
+      }
+
+      /* =======================
+   TABLET
+======================= */
+
+      @media (max-width: 992px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero p {
+          margin-inline: auto;
+        }
+
+        .cta-row {
+          justify-content: center;
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* =======================
+   MOBILE
+======================= */
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(100% - 20px, 1120px);
+        }
+
+        .hero {
+          padding-top: 50px;
+        }
+
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          border-radius: 24px;
+        }
+
+        .nav-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .nav-links {
+          justify-content: center;
+          gap: 12px;
+        }
+
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+        }
+
+        .card,
+        .hero-card,
+        .contact-box {
+          padding: 18px;
+        }
+      }
+
+      /* =======================
+   SMALL MOBILE
+======================= */
+
+      @media (max-width: 380px) {
+        .brand {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="container nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-badge">
+              <img src="./image/KWD.jpg" alt=""  style: width="100%">
+          </div>
+
+          <div>
+            <div class="brand-title">KWD</div>
+
+            <div class="brand-sub">Front-End • Football • White Hat</div>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#about"> درباره من </a>
+
+          <a href="#skills"> مهارت‌ها </a>
+
+          <a href="#products"> دوره‌ها </a>
+
+          <a href="#timeline"> مسیر من </a>
+
+          <a href="#contact"> ارتباط </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <h1>
+            من
+            <span>KWD</span>
+            هستم؛
+
+            <br />
+
+            در حال ساختن نسخه جدی‌تر خودم
+          </h1>
+
+          <p>
+            فرانت‌اند دولوپری که عاشق ساخت رابط‌های سریع و مدرن است، فوتبالیستی
+            که نظم و تلاش را جدی می‌گیرد، و یک وایت هت که امنیت را بخشی از توسعه
+            می‌داند.
+          </p>
+
+          <div class="cta-row">
+            <a href="#contact" class="btn primary"> همکاری و ارتباط </a>
+
+            <a href="#skills" class="btn"> مشاهده مهارت‌ها </a>
+          </div>
+
+          <div>
+            <span class="pulse"></span>
+
+            <span style="color: var(--muted)">
+              آماده برای پروژه‌های جدید و رشد حرفه‌ای
+            </span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="profile">
+            <div class="avatar">
+                  <img src="./image/KWD.jpg" alt=""  style: width="100%">
+            </div>
+
+            <div>
+              <h2>KWD</h2>
+
+              <p style="color: var(--muted)">
+                Front-End Developer • Athlete • White Hat
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>13+</strong>
+              شروع مسیر حرفه‌ای
+            </div>
+
+            <div class="stat">
+              <strong>3</strong>
+              هویت اصلی
+            </div>
+
+            <div class="stat">
+              <strong>100%</strong>
+              تمرکز روی رشد
+            </div>
+
+            <div class="stat">
+              <strong>∞</strong>
+              هدف‌های بزرگ
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <h2 class="section-title">درباره من</h2>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>فرانت‌اند</h3>
+
+            <p>
+              ساخت رابط‌های کاربری سریع، تمیز و حرفه‌ای با تمرکز روی تجربه
+              کاربری.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>فوتبال</h3>
+
+            <p>
+              فوتبال برای من فقط یک ورزش نیست؛ یعنی نظم، تمرکز، تصمیم‌گیری سریع
+              و کار تیمی.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">سرعت</span>
+              <span class="tag">استقامت</span>
+              <span class="tag">تمرکز</span>
+              <span class="tag">کار تیمی</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>وایت هت</h3>
+
+            <p>
+              یادگیری امنیت، شناخت آسیب‌پذیری‌ها و ساخت سیستم‌های امن‌تر بخشی از
+              مسیر حرفه‌ای من است.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">Security</span>
+              <span class="tag">OWASP</span>
+              <span class="tag">Ethical Hacking</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">مهارت‌ها و تمرکز</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>ساخت UI مدرن</h3>
+
+            <ul>
+              <li>طراحی مینیمال و حرفه‌ای</li>
+              <li>ریسپانسیو برای موبایل</li>
+              <li>انیمیشن‌های سبک و روان</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>توسعه فرانت‌اند</h3>
+
+            <ul>
+              <li>HTML Semantic</li>
+              <li>CSS Architecture</li>
+              <li>JavaScript Modern</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>ذهنیت رشد</h3>
+
+            <ul>
+              <li>یادگیری مداوم</li>
+              <li>پروژه‌های واقعی</li>
+              <li>ساخت برند شخصی</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="products">
+        <h2 class="section-title">دوره‌های آموزشی</h2>
+
+        <p style="color: var(--muted); margin-bottom: 20px">
+          آموزش‌هایی که برای انتقال تجربه و یادگیری بهتر تهیه شده‌اند.
+        </p>
+
+        <div class="grid-3">
+          <div class="card" style="border-top: 4px solid var(--accent)">
+            <img
+              src="./image/html.jpg"
+              alt="HTML Course"
+              class="course-image"
+            />
+
+            <h3>آموزش HTML</h3>
+
+            <p>
+              آموزش کامل HTML از مقدماتی تا پیشرفته برای ساخت ساختار اصولی سایت.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">فرانت‌اند</span>
+            </div>
+
+            <button class="btn course-price">2,900,000 تومان</button>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--accent2)">
+            <img
+              src="./image/python.jpg"
+              alt="Python Course"
+              class="course-image"
+            />
+
+            <h3>آموزش Python</h3>
+
+            <p>
+              یادگیری منطق برنامه‌نویسی و توسعه پروژه‌های کاربردی با پایتون.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">Back-End</span>
+            </div>
+
+            <button class="btn course-price">1,200,000 تومان</button>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--danger)">
+            <img src="./image/css.jpg" alt="CSS Course" class="course-image" />
+
+            <h3>آموزش CSS</h3>
+
+            <p>طراحی ظاهر سایت، ساخت رابط‌های حرفه‌ای و انیمیشن‌های مدرن.</p>
+
+            <div class="tag-list">
+              <span class="tag">Front-End</span>
+            </div>
+
+            <button class="btn course-price">999,000 تومان</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <h2 class="section-title">مسیر من</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>امروز</strong>
+
+            <div>ساختن پایه قوی در برنامه‌نویسی، امنیت و رشد شخصی.</div>
+          </div>
+
+          <div class="timeline-item">
+            <strong>مرحله بعد</strong>
+
+            <div>توسعه پروژه‌های واقعی، ساخت نمونه‌کار و کسب تجربه.</div>
+          </div>
+
+          <div class="timeline-item">
+            <strong>هدف نهایی</strong>
+
+            <div>رسیدن به سطح حرفه‌ای، استقلال مالی و ساخت برند شخصی.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">ارتباط با من</h2>
+
+        <div class="contact">
+          <div class="contact-box">
+            <h3>همکاری و ارتباط</h3>
+
+            <p>
+              کانال رسمی:
+
+              <br /><br />
+
+              <a href="https://eitaa.com/Kian_Kheiri" target="_blank">
+                eitaa.com/Kian_Kheiri
+              </a>
+            </p>
+          </div>
+
+          <div class="contact-box">
+            <h3>شبکه‌ها و نمونه‌کار</h3>
+
+            <p>
+              اطلاعات:
+
+              <br />
+
+              <a
+                href="https://eitaa.com/KianKheiri_Information"
+                target="_blank"
+              >
+                کانال اطلاعات
+              </a>
+
+              <br /><br />
+
+              <a
+                href="https://eitaa.com/kian_kheiri_AI_Portfolio"
+       
