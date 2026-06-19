@@ -1401,6 +1401,12 @@ body {
         color: #04111f;
       }
 
+
+ {
+  border: 2px solid red;
+}
+
+
       /* =======================
    HERO CARD
 ======================= */
@@ -2328,6 +2334,21 @@ body {
     cursor:pointer;
 }
 
+
+/* Continue */
+
+#btnr {
+    border: none;
+    min-height: 48px;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-radius: 16px;
+    color: var(--text);
+    font-weight: 600;
+    background: rgb(0, 221, 255);
+    border: 1px solid var(--card-border);
+    transition: 0.25s;
+
     </style>
   </head>
 
@@ -2382,6 +2403,9 @@ body {
             <a href="#contact" class="btn primary"> همکاری و ارتباط </a>
 
             <a href="#skills" class="btn"> مشاهده مهارت‌ها </a>
+
+            <a href="./r.pdf" class="btn" style="background-color: blue) ;"> مشاهده رزومه </a>
+
           </div>
 
           <div>
@@ -2557,7 +2581,7 @@ kian kheiri | کیان خیری</h2>
 
           <div class="card" style="border-top: 4px solid var(--accent2)">
             <img
-              src="https://web.rubika.ir/#c=u0I4lzL05a7ae6e60e681583576a4fc3"
+              src="https://gapgpt.cloud/user_files/7809cc65-9618-4c11-9d1e-ff3be5b9bd72.webp"
               alt="Python Course"
               class="course-image"
             />
@@ -2633,32 +2657,6 @@ kian kheiri | کیان خیری</h2>
           </div>
         </div>
       </section>
-    <section class="py-20 px-6 text-center">
-        <h1 class="text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            چرا KWD؟ چون نتیجه‌گرا هستیم.
-        </h1>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
-            ما اینجا نیستیم که فقط کد بزنیم. ما اینجا هستیم تا مسائل پیچیده را با راهکارهای هوشمندانه حل کنیم. برنامه‌نویسی برای ما، هنرِ امنیت و کارایی است.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <!-- کارت اول -->
-            <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-4">امنیت نفوذناپذیر</h3>
-                <p class="text-gray-400">نگاه یک هکر کلاه سفید به پروژه‌ها، یعنی ساختاری که از ریشه امن است.</p>
-            </div>
-            <!-- کارت دوم -->
-            <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-4">فرانت‌اندِ سریع</h3>
-                <p class="text-gray-400">ترکیب خلاقیت بصری و سرعتِ بارگذاری بالا برای تجربه کاربری بی‌نظیر.</p>
-            </div>
-            <!-- کارت سوم -->
-            <div class="p-8 bg-gray-800 rounded-2xl border border-gray-700 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-4">تیمِ چابک</h3>
-                <p class="text-gray-400">ما مثل یک تیم حرفه‌ایِ فوتبال، هماهنگ و در لحظه تصمیم می‌گیریم.</p>
-            </div>
-        </div>
-    </section>
       <section id="timeline">
         <h2 class="section-title">مسیر من</h2>
 
@@ -2737,117 +2735,6 @@ kian kheiri | کیان خیری</h2>
   </div>
 </footer>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const widget = document.getElementById("mh-ai-widget");
-    const toggle = widget.querySelector(".mh-toggle");
-    const panel = widget.querySelector(".mh-panel");
-    const closeBtn = widget.querySelector(".mh-close");
-    const chat = widget.querySelector(".mh-chat");
-    const input = widget.querySelector("input");
-    const sendBtn = widget.querySelector("button");
-
-    // =========================
-    // OPEN CHAT
-    // =========================
-    toggle.addEventListener("click", () => {
-        widget.classList.add("active");
-    });
-
-    // =========================
-    // CLOSE CHAT
-    // =========================
-    closeBtn.addEventListener("click", () => {
-        widget.classList.remove("active");
-    });
-
-    // =========================
-    // ADD MESSAGE
-    // =========================
-    function addMessage(text, type) {
-        const div = document.createElement("div");
-        div.className = "msg " + type;
-        div.innerText = text;
-
-        chat.appendChild(div);
-        chat.scrollTop = chat.scrollHeight;
-    }
-
-    // =========================
-    // TYPING EFFECT
-    // =========================
-    function showTyping() {
-        const typing = document.createElement("div");
-        typing.className = "msg ai typing-box";
-        typing.innerHTML = "●●●";
-        typing.id = "typing-" + Date.now();
-
-        chat.appendChild(typing);
-        chat.scrollTop = chat.scrollHeight;
-
-        return typing.id;
-    }
-
-    function removeTyping(id) {
-        const el = document.getElementById(id);
-        if (el) el.remove();
-    }
-
-    // =========================
-    // AI RESPONSE (MOCK / READY FOR API)
-    // =========================
-    async function askAI(message) {
-
-        addMessage(message, "user");
-
-        const typingId = showTyping();
-
-        // ===== FAKE AI RESPONSE =====
-        setTimeout(() => {
-
-            removeTyping(typingId);
-
-            const response =
-                "هنوز آماده نیست ! به زودی . . . . .";
-
-            addMessage(response, "ai");
-
-        }, 800);
-
-          //  🔥 REAL AI (UNCOMMENT IF NEEDED)
-
-        const data = await res.json();
-
-        removeTyping(typingId);
-
-        addMessage(
-            data.choices[0].message.content,
-            "ai"
-        );
-
-
-    }
-
-    // =========================
-    // SEND MESSAGE
-    // =========================
-    function send() {
-        const text = input.value.trim();
-        if (!text) return;
-
-        askAI(text);
-        input.value = "";
-    }
-
-    sendBtn.addEventListener("click", send);
-
-    input.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            send();
-        }
-    });
-
-});
 </script>
   </body>
 </html>
