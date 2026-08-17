@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KWD-CMD — Cyber Security</title>
-    <meta name="description" content="KWD-CMD — Cyber Security, Network Security, Kali Linux, Web Security, VPN & Proxy">
-
+    <!-- ========================================================= FONTS & CSS VARIABLES ========================================================= -->
     <style>
-        /* =========================================================
-                   FONTS & CSS VARIABLES
-                   ========================================================= */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-
         :root {
             --bg: #03050a;
             --panel: rgba(9, 14, 25, .74);
@@ -28,23 +22,19 @@
             --font-sans: 'Inter', Arial, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
         }
-
         body {
-            background:
-                radial-gradient(circle at 15% 10%, rgba(77, 163, 255, .12), transparent 28%),
+            background: radial-gradient(circle at 15% 10%, rgba(77, 163, 255, .12), transparent 28%),
                 radial-gradient(circle at 85% 30%, rgba(139, 92, 246, .08), transparent 25%),
                 var(--bg);
             color: var(--text);
@@ -55,25 +45,19 @@
             overflow-x: hidden;
             position: relative;
         }
-
         a {
             color: inherit;
             text-decoration: none;
         }
-
         button {
             font-family: inherit;
             cursor: pointer;
         }
-
         img {
             max-width: 100%;
             display: block;
         }
-
-        /* =========================================================
-                   BACKGROUND LAYERS
-                   ========================================================= */
+        /* ========================================================= BACKGROUND LAYERS ========================================================= */
         #particles {
             position: fixed;
             inset: 0;
@@ -83,7 +67,6 @@
             z-index: -5;
             pointer-events: none;
         }
-
         .grid-bg {
             position: fixed;
             inset: 0;
@@ -91,15 +74,13 @@
             height: 100%;
             z-index: -4;
             pointer-events: none;
-            background-image:
-                linear-gradient(rgba(77, 163, 255, .045) 1px, transparent 1px),
+            background-image: linear-gradient(rgba(77, 163, 255, .045) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(77, 163, 255, .045) 1px, transparent 1px);
             background-size: 55px 55px;
             mask-image: linear-gradient(to bottom, black, transparent 85%);
             -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
             animation: gridMove 18s linear infinite;
         }
-
         @keyframes gridMove {
             from {
                 background-position: 0 0;
@@ -108,7 +89,6 @@
                 background-position: 0 55px;
             }
         }
-
         .scanline {
             position: fixed;
             left: 0;
@@ -120,7 +100,6 @@
             pointer-events: none;
             animation: scan 7s linear infinite;
         }
-
         @keyframes scan {
             0% {
                 top: -5%;
@@ -137,7 +116,6 @@
                 opacity: 0;
             }
         }
-
         .mouse-glow {
             position: fixed;
             width: 450px;
@@ -149,10 +127,7 @@
             z-index: -2;
             transition: opacity .3s;
         }
-
-        /* =========================================================
-                   CUSTOM CURSOR
-                   ========================================================= */
+        /* ========================================================= CUSTOM CURSOR ========================================================= */
         .cursor {
             position: fixed;
             width: 18px;
@@ -165,7 +140,6 @@
             mix-blend-mode: difference;
             transition: width .2s, height .2s, border-color .3s;
         }
-
         .cursor-dot {
             position: fixed;
             width: 4px;
@@ -176,10 +150,7 @@
             z-index: 10000;
             transform: translate(-50%, -50%);
         }
-
-        /* =========================================================
-                   LOADER
-                   ========================================================= */
+        /* ========================================================= LOADER ========================================================= */
         .loader {
             position: fixed;
             inset: 0;
@@ -190,17 +161,14 @@
             justify-content: center;
             transition: opacity .8s, visibility .8s;
         }
-
         .loader.hide {
             opacity: 0;
             visibility: hidden;
         }
-
         .loader-content {
             text-align: center;
             padding: 20px;
         }
-
         .loader-logo {
             font-family: var(--font-mono);
             font-size: clamp(35px, 8vw, 80px);
@@ -208,11 +176,9 @@
             letter-spacing: 4px;
             color: var(--text);
         }
-
         .loader-logo span {
             color: var(--cyan);
         }
-
         .loader-bar {
             width: min(260px, 80vw);
             height: 2px;
@@ -221,7 +187,6 @@
             overflow: hidden;
             border-radius: 2px;
         }
-
         .loader-progress {
             width: 0;
             height: 100%;
@@ -230,23 +195,18 @@
             border-radius: 2px;
             animation: loadProgress 2.2s var(--ease) forwards;
         }
-
         @keyframes loadProgress {
             to {
                 width: 100%;
             }
         }
-
         .loader-status {
             color: var(--muted);
             font-family: var(--font-mono);
             font-size: 11px;
             letter-spacing: .5px;
         }
-
-        /* =========================================================
-                   NAVBAR
-                   ========================================================= */
+        /* ========================================================= NAVBAR ========================================================= */
         nav {
             position: fixed;
             top: 0;
@@ -256,7 +216,6 @@
             padding: 18px 0;
             transition: padding .4s var(--ease), background .4s, border-color .4s;
         }
-
         nav.scrolled {
             padding: 10px 0;
             background: rgba(3, 5, 10, .72);
@@ -264,19 +223,16 @@
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-
         .container {
             width: min(1150px, 92%);
             margin: auto;
         }
-
         .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 10px;
         }
-
         .logo {
             font-family: var(--font-mono);
             font-size: 20px;
@@ -285,11 +241,9 @@
             color: var(--text);
             flex-shrink: 0;
         }
-
         .logo span {
             color: var(--cyan);
         }
-
         .nav-links {
             display: flex;
             gap: 28px;
@@ -297,7 +251,6 @@
             margin-left: auto;
             align-items: center;
         }
-
         .nav-links a {
             position: relative;
             color: var(--muted);
@@ -305,7 +258,6 @@
             transition: color .3s;
             white-space: nowrap;
         }
-
         .nav-links a::after {
             content: "";
             position: absolute;
@@ -317,21 +269,17 @@
             box-shadow: 0 0 10px var(--cyan);
             transition: width .3s var(--ease);
         }
-
         .nav-links a:hover {
             color: #fff;
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         /* Language Switcher */
         .lang-switcher {
             position: relative;
             flex-shrink: 0;
         }
-
         .lang-button {
             display: flex;
             align-items: center;
@@ -346,17 +294,14 @@
             transition: .3s;
             cursor: pointer;
         }
-
         .lang-button:hover {
             border-color: rgba(53, 231, 255, .35);
             color: var(--cyan);
             box-shadow: 0 0 20px rgba(53, 231, 255, .08);
         }
-
         .lang-icon {
             font-size: 13px;
         }
-
         .lang-menu {
             position: absolute;
             right: 0;
@@ -374,13 +319,11 @@
             transition: .25s var(--ease);
             z-index: 1000;
         }
-
         .lang-switcher.open .lang-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0) scale(1);
         }
-
         .lang-option {
             width: 100%;
             display: flex;
@@ -396,22 +339,18 @@
             cursor: pointer;
             transition: .2s;
         }
-
         .lang-option:hover,
         .lang-option.active {
             background: rgba(53, 231, 255, .07);
             color: var(--cyan);
         }
-
         .lang-check {
             opacity: 0;
             font-size: 11px;
         }
-
         .lang-option.active .lang-check {
             opacity: 1;
         }
-
         /* Mobile Menu Button */
         .menu-btn {
             display: none;
@@ -426,14 +365,10 @@
             flex-shrink: 0;
             transition: .3s;
         }
-
         .menu-btn:hover {
             border-color: rgba(53, 231, 255, .3);
         }
-
-        /* =========================================================
-                   HERO SECTION
-                   ========================================================= */
+        /* ========================================================= HERO SECTION ========================================================= */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -442,14 +377,12 @@
             padding-bottom: 60px;
             position: relative;
         }
-
         .hero-layout {
             display: grid;
             grid-template-columns: 1.15fr .85fr;
             gap: 60px;
             align-items: center;
         }
-
         .status {
             display: inline-flex;
             align-items: center;
@@ -463,7 +396,6 @@
             font-size: 11px;
             margin-bottom: 24px;
         }
-
         .status-dot {
             width: 7px;
             height: 7px;
@@ -472,14 +404,12 @@
             box-shadow: 0 0 8px var(--green);
             animation: pulse 1.5s infinite;
         }
-
         @keyframes pulse {
             50% {
                 opacity: .3;
                 transform: scale(.7);
             }
         }
-
         .hero h1 {
             font-size: clamp(45px, 7vw, 82px);
             line-height: 1.05;
@@ -487,7 +417,6 @@
             font-weight: 900;
             margin-bottom: 25px;
         }
-
         .hero h1 .gradient {
             background: linear-gradient(100deg, #fff, var(--cyan), var(--blue), var(--purple));
             background-size: 300%;
@@ -496,7 +425,6 @@
             color: transparent;
             animation: gradientShift 7s ease infinite;
         }
-
         @keyframes gradientShift {
             0%,
             100% {
@@ -506,12 +434,10 @@
                 background-position: 100%;
             }
         }
-
         .glitch {
             position: relative;
             display: inline-block;
         }
-
         .glitch::before,
         .glitch::after {
             content: attr(data-text);
@@ -520,7 +446,6 @@
             pointer-events: none;
             opacity: 0;
         }
-
         .glitch:hover::before {
             opacity: .7;
             color: #ff2bd6;
@@ -528,7 +453,6 @@
             clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
             animation: glitchAnim .25s infinite;
         }
-
         .glitch:hover::after {
             opacity: .7;
             color: #00ffff;
@@ -536,13 +460,11 @@
             clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
             animation: glitchAnim .2s infinite;
         }
-
         @keyframes glitchAnim {
             50% {
                 transform: translate(5px, -2px);
             }
         }
-
         .hero-description {
             color: var(--muted);
             max-width: 650px;
@@ -550,18 +472,15 @@
             line-height: 1.9;
             margin-bottom: 30px;
         }
-
         .hero-description strong {
             color: var(--text);
             font-weight: 600;
         }
-
         .buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-
         .btn {
             display: inline-flex;
             align-items: center;
@@ -578,7 +497,6 @@
             cursor: pointer;
             color: var(--text);
         }
-
         .btn::before {
             content: "";
             position: absolute;
@@ -589,33 +507,27 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
             transition: .5s;
         }
-
         .btn:hover::before {
             left: 100%;
         }
-
         .btn:hover {
             transform: translateY(-4px);
             border-color: rgba(53, 231, 255, .35);
             box-shadow: 0 10px 30px rgba(53, 231, 255, .08);
         }
-
         .btn.primary {
             background: var(--cyan);
             color: #001015;
             border-color: var(--cyan);
             box-shadow: 0 0 30px rgba(53, 231, 255, .15);
         }
-
         .btn.primary:hover {
             box-shadow: 0 0 45px rgba(53, 231, 255, .3);
         }
-
         /* Terminal */
         .terminal-wrap {
             position: relative;
         }
-
         .terminal-glow {
             position: absolute;
             inset: -30px;
@@ -624,14 +536,12 @@
             z-index: -1;
             animation: terminalGlow 5s ease-in-out infinite;
         }
-
         @keyframes terminalGlow {
             50% {
                 opacity: .4;
                 transform: scale(1.08);
             }
         }
-
         .terminal {
             background: linear-gradient(145deg, rgba(12, 20, 34, .95), rgba(3, 7, 13, .95));
             border: 1px solid rgba(53, 231, 255, .18);
@@ -641,12 +551,10 @@
             transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
             transition: transform .6s var(--ease), border-color .4s;
         }
-
         .terminal:hover {
             transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-8px);
             border-color: rgba(53, 231, 255, .4);
         }
-
         .terminal-head {
             display: flex;
             align-items: center;
@@ -655,12 +563,10 @@
             border-bottom: 1px solid var(--border);
             background: rgba(255, 255, 255, .025);
         }
-
         .terminal-dots {
             display: flex;
             gap: 6px;
         }
-
         .terminal-dots i {
             width: 8px;
             height: 8px;
@@ -668,7 +574,6 @@
             background: #384152;
             display: block;
         }
-
         .terminal-dots i:nth-child(1) {
             background: #ff5f57;
         }
@@ -678,13 +583,11 @@
         .terminal-dots i:nth-child(3) {
             background: #28c840;
         }
-
         .terminal-title {
             font-family: var(--font-mono);
             color: #647085;
             font-size: 10px;
         }
-
         .terminal-body {
             padding: 25px;
             min-height: 340px;
@@ -693,23 +596,18 @@
             line-height: 2;
             color: #aab6c8;
         }
-
         .terminal-output {
             color: #708099;
         }
-
         .prompt {
             color: var(--green);
         }
-
         .command {
             color: #fff;
         }
-
         .cyan-text {
             color: var(--cyan);
         }
-
         .cursor-terminal {
             display: inline-block;
             width: 7px;
@@ -718,25 +616,19 @@
             vertical-align: -2px;
             animation: blink .8s infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
             }
         }
-
-        /* =========================================================
-                   SECTIONS GENERAL
-                   ========================================================= */
+        /* ========================================================= SECTIONS GENERAL ========================================================= */
         section {
             padding: 120px 0;
             position: relative;
         }
-
         .section-head {
             margin-bottom: 50px;
         }
-
         .section-code {
             color: var(--cyan);
             font-family: var(--font-mono);
@@ -744,30 +636,24 @@
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
-
         .section-head h2 {
             font-size: clamp(32px, 5vw, 48px);
             letter-spacing: -2px;
             margin-bottom: 10px;
             font-weight: 800;
         }
-
         .section-head p {
             color: var(--muted);
             max-width: 650px;
             line-height: 1.8;
             font-size: 15px;
         }
-
-        /* =========================================================
-                   ABOUT CARDS
-                   ========================================================= */
+        /* ========================================================= ABOUT CARDS ========================================================= */
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
-
         .card {
             position: relative;
             padding: 30px;
@@ -778,7 +664,6 @@
             overflow: hidden;
             transition: transform .15s, border-color .4s, box-shadow .4s;
         }
-
         .card::before {
             content: "";
             position: absolute;
@@ -789,16 +674,13 @@
             background: radial-gradient(circle, rgba(53, 231, 255, .16), transparent 70%);
             transition: transform .5s;
         }
-
         .card:hover::before {
             transform: scale(2);
         }
-
         .card:hover {
             border-color: rgba(53, 231, 255, .25);
             box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
         }
-
         .card-number {
             color: var(--cyan);
             font-family: var(--font-mono);
@@ -806,28 +688,22 @@
             margin-bottom: 35px;
             letter-spacing: 1px;
         }
-
         .card h3 {
             font-size: 21px;
             margin-bottom: 12px;
             font-weight: 700;
         }
-
         .card p {
             color: var(--muted);
             font-size: 13px;
             line-height: 1.9;
         }
-
-        /* =========================================================
-                   SKILLS
-                   ========================================================= */
+        /* ========================================================= SKILLS ========================================================= */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
-
         .skill {
             padding: 24px;
             background: var(--panel);
@@ -835,37 +711,31 @@
             border-radius: 15px;
             transition: transform .4s, border-color .4s;
         }
-
         .skill:hover {
             transform: translateY(-5px);
             border-color: rgba(77, 163, 255, .25);
         }
-
         .skill-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
         }
-
         .skill-name {
             font-size: 14px;
             font-weight: 600;
         }
-
         .skill-percent {
             color: var(--cyan);
             font-family: var(--font-mono);
             font-size: 11px;
         }
-
         .skill-track {
             height: 4px;
             background: #111827;
             border-radius: 10px;
             overflow: hidden;
         }
-
         .skill-fill {
             width: 0;
             height: 100%;
@@ -874,16 +744,12 @@
             border-radius: 10px;
             transition: width 1.8s var(--ease);
         }
-
-        /* =========================================================
-                   PROJECTS
-                   ========================================================= */
+        /* ========================================================= PROJECTS ========================================================= */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
         .project {
             position: relative;
             min-height: 330px;
@@ -894,7 +760,6 @@
             background: linear-gradient(145deg, rgba(10, 17, 29, .9), rgba(4, 7, 12, .9));
             transition: transform .5s var(--ease), border-color .4s;
         }
-
         .project::after {
             content: "";
             position: absolute;
@@ -905,43 +770,36 @@
             background: linear-gradient(transparent, rgba(53, 231, 255, .08), transparent);
             transition: top .7s;
         }
-
         .project:hover::after {
             top: 100%;
         }
-
         .project:hover {
             transform: translateY(-10px) scale(1.01);
             border-color: rgba(53, 231, 255, .3);
         }
-
         .project-number {
             font-family: var(--font-mono);
             color: var(--cyan);
             font-size: 10px;
             letter-spacing: 2px;
         }
-
         .project h3 {
             font-size: 25px;
             margin: 25px 0 10px;
             font-weight: 700;
         }
-
         .project p {
             color: var(--muted);
             font-size: 13px;
             max-width: 500px;
             line-height: 1.9;
         }
-
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 7px;
             margin-top: 25px;
         }
-
         .tag {
             padding: 5px 9px;
             border-radius: 6px;
@@ -953,13 +811,11 @@
             transition: .3s;
             cursor: default;
         }
-
         .tag:hover {
             color: var(--cyan);
             border-color: rgba(53, 231, 255, .35);
             transform: translateY(-2px);
         }
-
         .project-status {
             position: absolute;
             right: 25px;
@@ -971,7 +827,6 @@
             gap: 6px;
             align-items: center;
         }
-
         .project-status i {
             width: 5px;
             height: 5px;
@@ -980,23 +835,18 @@
             box-shadow: 0 0 8px var(--green);
             display: block;
         }
-
-        /* =========================================================
-                   SECURITY LAB / DASHBOARD
-                   ========================================================= */
+        /* ========================================================= SECURITY LAB / DASHBOARD ========================================================= */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
         }
-
         .monitor {
             padding: 25px;
             border: 1px solid var(--border);
             border-radius: 17px;
             background: var(--panel);
         }
-
         .monitor-head {
             display: flex;
             justify-content: space-between;
@@ -1005,13 +855,11 @@
             border-bottom: 1px solid var(--border);
             align-items: center;
         }
-
         .monitor-title {
             font-family: var(--font-mono);
             font-size: 11px;
             letter-spacing: 1px;
         }
-
         .online {
             color: var(--green);
             font-family: var(--font-mono);
@@ -1020,7 +868,6 @@
             align-items: center;
             gap: 4px;
         }
-
         .logs {
             height: 220px;
             overflow: hidden;
@@ -1029,11 +876,9 @@
             color: #69768c;
             line-height: 2.2;
         }
-
         .log {
             animation: logIn .4s ease;
         }
-
         @keyframes logIn {
             from {
                 opacity: 0;
@@ -1044,13 +889,11 @@
                 transform: translateX(0);
             }
         }
-
         .metrics {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
-
         .metric {
             padding: 20px;
             border: 1px solid var(--border);
@@ -1058,7 +901,6 @@
             background: rgba(255, 255, 255, .02);
             text-align: center;
         }
-
         .metric-value {
             font-size: 30px;
             font-weight: 800;
@@ -1066,23 +908,18 @@
             font-family: var(--font-mono);
             line-height: 1.2;
         }
-
         .metric-label {
             color: var(--muted);
             font-size: 10px;
             margin-top: 5px;
             letter-spacing: .5px;
         }
-
-        /* =========================================================
-                   CERTIFICATES
-                   ========================================================= */
+        /* ========================================================= CERTIFICATES ========================================================= */
         .certs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px;
         }
-
         .cert-card {
             position: relative;
             padding: 28px;
@@ -1095,7 +932,6 @@
             flex-direction: column;
             gap: 14px;
         }
-
         .cert-card::before {
             content: "";
             position: absolute;
@@ -1110,17 +946,14 @@
             opacity: .5;
             transition: opacity .4s;
         }
-
         .cert-card:hover::before {
             opacity: 1;
         }
-
         .cert-card:hover {
             transform: translateY(-8px);
             border-color: rgba(53, 231, 255, .3);
             box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
         }
-
         .cert-status-badge {
             display: inline-flex;
             align-items: center;
@@ -1135,7 +968,6 @@
             background: rgba(53, 255, 154, .06);
             color: var(--green);
         }
-
         .cert-status-badge i {
             width: 5px;
             height: 5px;
@@ -1144,19 +976,16 @@
             box-shadow: 0 0 6px var(--green);
             display: block;
         }
-
         .cert-title {
             font-size: 20px;
             font-weight: 700;
             letter-spacing: -.5px;
         }
-
         .cert-course {
             font-size: 14px;
             font-weight: 600;
             color: var(--cyan);
         }
-
         .cert-details {
             display: flex;
             flex-direction: column;
@@ -1165,18 +994,15 @@
             color: var(--muted);
             line-height: 1.6;
         }
-
         .cert-details span {
             display: flex;
             gap: 6px;
         }
-
         .cert-details strong {
             color: var(--text);
             font-weight: 600;
             min-width: 80px;
         }
-
         .cert-provider-badge {
             display: inline-flex;
             align-items: center;
@@ -1190,55 +1016,46 @@
             font-size: 10px;
             width: fit-content;
         }
-
         .cert-id {
             font-family: var(--font-mono);
             font-size: 11px;
             color: var(--cyan);
             letter-spacing: 1px;
         }
-
         .cert-actions {
             display: flex;
             gap: 10px;
             margin-top: auto;
             padding-top: 10px;
         }
-
         .cert-actions .btn {
             padding: 9px 15px;
             font-size: 11px;
             border-radius: 8px;
         }
-
         .btn-verify {
             background: rgba(53, 231, 255, .08);
             border-color: rgba(53, 231, 255, .25);
             color: var(--cyan);
         }
-
         .btn-verify:hover {
             background: rgba(53, 231, 255, .15);
             box-shadow: 0 0 25px rgba(53, 231, 255, .15);
         }
-
         .btn-view {
             background: rgba(139, 92, 246, .08);
             border-color: rgba(139, 92, 246, .25);
             color: var(--purple);
         }
-
         .btn-view:hover {
             background: rgba(139, 92, 246, .15);
             box-shadow: 0 0 25px rgba(139, 92, 246, .15);
         }
-
         .btn-view.disabled {
             opacity: .4;
             pointer-events: none;
             cursor: not-allowed;
         }
-
         /* Certificate image thumbnail */
         .cert-thumb {
             width: 100%;
@@ -1250,12 +1067,10 @@
             cursor: pointer;
             margin-top: 10px;
         }
-
         .cert-thumb:hover {
             transform: scale(1.02);
             border-color: rgba(53, 231, 255, .4);
         }
-
         /* Certificate image modal */
         .cert-modal {
             display: none;
@@ -1269,11 +1084,9 @@
             padding: 20px;
             cursor: zoom-out;
         }
-
         .cert-modal.active {
             display: flex;
         }
-
         .cert-modal img {
             max-width: 90vw;
             max-height: 90vh;
@@ -1282,16 +1095,12 @@
             box-shadow: 0 0 60px rgba(53, 231, 255, .2);
             cursor: default;
         }
-
-        /* =========================================================
-                   TIMELINE
-                   ========================================================= */
+        /* ========================================================= TIMELINE ========================================================= */
         .timeline {
             position: relative;
             max-width: 800px;
             margin: auto;
         }
-
         .timeline::before {
             content: "";
             position: absolute;
@@ -1304,11 +1113,9 @@
             transform: scaleY(0);
             transition: transform 2s var(--ease);
         }
-
         .timeline.active::before {
             transform: scaleY(1);
         }
-
         .timeline-item {
             position: relative;
             display: flex;
@@ -1318,12 +1125,10 @@
             transform: translateX(-30px);
             transition: opacity 1s var(--ease), transform 1s var(--ease);
         }
-
         .timeline.active .timeline-item {
             opacity: 1;
             transform: translateX(0);
         }
-
         .timeline.active .timeline-item:nth-child(2) {
             transition-delay: .15s;
         }
@@ -1345,7 +1150,6 @@
         .timeline.active .timeline-item:nth-child(8) {
             transition-delay: 1.05s;
         }
-
         .node {
             min-width: 49px;
             height: 49px;
@@ -1361,7 +1165,6 @@
             box-shadow: 0 0 0 6px rgba(53, 231, 255, .025), 0 0 25px rgba(53, 231, 255, .12);
             flex-shrink: 0;
         }
-
         .timeline-content {
             flex: 1;
             padding: 18px 20px;
@@ -1370,27 +1173,21 @@
             border-radius: 13px;
             transition: .3s;
         }
-
         .timeline-content:hover {
             transform: translateX(6px);
             border-color: rgba(53, 231, 255, .3);
         }
-
         .timeline-content h3 {
             font-size: 15px;
             margin-bottom: 4px;
             font-weight: 600;
         }
-
         .timeline-content p {
             color: var(--muted);
             font-size: 11px;
             line-height: 1.7;
         }
-
-        /* =========================================================
-                   CONTACT
-                   ========================================================= */
+        /* ========================================================= CONTACT ========================================================= */
         .contact {
             position: relative;
             padding: 80px 30px;
@@ -1400,14 +1197,12 @@
             overflow: hidden;
             background: radial-gradient(circle at 50% 0%, rgba(53, 231, 255, .12), transparent 55%), var(--panel);
         }
-
         .contact h2 {
             font-size: clamp(35px, 7vw, 65px);
             margin: 10px 0;
             letter-spacing: -3px;
             font-weight: 800;
         }
-
         .contact p {
             color: var(--muted);
             max-width: 600px;
@@ -1415,17 +1210,13 @@
             font-size: 15px;
             line-height: 1.8;
         }
-
-        /* =========================================================
-                   FOOTER
-                   ========================================================= */
+        /* ========================================================= FOOTER ========================================================= */
         footer {
             padding: 50px 0;
             border-top: 1px solid var(--border);
             color: var(--muted);
             font-size: 11px;
         }
-
         .footer-inner {
             display: flex;
             justify-content: space-between;
@@ -1433,7 +1224,6 @@
             flex-wrap: wrap;
             align-items: center;
         }
-
         .footer-logo {
             color: #fff;
             font-family: var(--font-mono);
@@ -1442,47 +1232,35 @@
             letter-spacing: 1px;
             margin-bottom: 4px;
         }
-
-        /* =========================================================
-                   REVEAL ANIMATION
-                   ========================================================= */
+        /* ========================================================= REVEAL ANIMATION ========================================================= */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(.98);
             transition: opacity 1s var(--ease), transform 1s var(--ease);
         }
-
         .reveal.show {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-
-        /* =========================================================
-                   RTL SUPPORT
-                   ========================================================= */
+        /* ========================================================= RTL SUPPORT ========================================================= */
         html[dir="rtl"] .hero h1,
         html[dir="rtl"] .section-head h2,
         html[dir="rtl"] .contact h2 {
             letter-spacing: 0;
         }
-
         html[dir="rtl"] .timeline::before {
             left: auto;
             right: 24px;
         }
-
         html[dir="rtl"] .timeline-item {
             transform: translateX(30px);
         }
-
         html[dir="rtl"] .timeline.active .timeline-item {
             transform: translateX(0);
         }
-
         html[dir="rtl"] .timeline-content:hover {
             transform: translateX(-6px);
         }
-
         html[dir="rtl"] .terminal-body,
         html[dir="rtl"] .logo,
         html[dir="rtl"] .section-code,
@@ -1500,30 +1278,23 @@
             font-family: var(--font-mono);
             direction: ltr;
         }
-
         html[dir="rtl"] .nav-links {
             margin-left: 0;
             margin-right: auto;
         }
-
         html[dir="rtl"] .lang-menu {
             right: auto;
             left: 0;
         }
-
         html[dir="rtl"] .project-status {
             right: auto;
             left: 25px;
         }
-
         html[dir="rtl"] .card::before {
             right: auto;
             left: -100px;
         }
-
-        /* =========================================================
-                   RESPONSIVE
-                   ========================================================= */
+        /* ========================================================= RESPONSIVE ========================================================= */
         @media (max-width: 850px) {
             .nav-links {
                 position: absolute;
@@ -1540,12 +1311,10 @@
                 -webkit-backdrop-filter: blur(20px);
                 gap: 16px;
             }
-
             .nav-links.open {
                 display: flex;
                 animation: menuIn .4s var(--ease);
             }
-
             @keyframes menuIn {
                 from {
                     opacity: 0;
@@ -1556,110 +1325,85 @@
                     transform: translateY(0);
                 }
             }
-
             .menu-btn {
                 display: block;
             }
-
             .hero-layout {
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
-
             .terminal {
                 transform: none;
             }
-
             .terminal:hover {
                 transform: translateY(-5px);
             }
-
             .cards,
             .skills-grid,
             .projects-grid,
             .dashboard {
                 grid-template-columns: 1fr;
             }
-
             .hero h1 {
                 letter-spacing: -2px;
             }
-
             section {
                 padding: 85px 0;
             }
-
             .cursor,
             .cursor-dot {
                 display: none;
             }
-
             .mouse-glow {
                 display: none;
             }
-
             .certs-grid {
                 grid-template-columns: 1fr;
             }
         }
-
         @media (max-width: 500px) {
             .hero h1 {
                 font-size: 43px;
             }
-
             .hero-description {
                 font-size: 14px;
             }
-
             .terminal-body {
                 min-height: 290px;
                 padding: 18px;
                 font-size: 10px;
             }
-
             .contact {
                 padding: 55px 20px;
             }
-
             .lang-button {
                 padding: 8px 9px;
             }
-
             .lang-button span:not(.lang-icon) {
                 display: none;
             }
-
             .card {
                 padding: 22px;
                 min-height: auto;
             }
-
             .project {
                 padding: 22px;
                 min-height: auto;
             }
-
             .monitor {
                 padding: 18px;
             }
-
             .metrics {
                 grid-template-columns: 1fr;
             }
-
             .cert-actions {
                 flex-direction: column;
             }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- =========================================================
-    LOADER
-    ========================================================= -->
+    <!-- ========================================================= LOADER ========================================================= -->
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="loader-logo">KWD<span>-CMD</span></div>
@@ -1668,27 +1412,20 @@
         </div>
     </div>
 
-    <!-- =========================================================
-    BACKGROUND LAYERS
-    ========================================================= -->
+    <!-- ========================================================= BACKGROUND LAYERS ========================================================= -->
     <canvas id="particles"></canvas>
     <div class="grid-bg"></div>
     <div class="scanline"></div>
     <div class="mouse-glow" id="mouseGlow"></div>
 
-    <!-- =========================================================
-    CUSTOM CURSOR
-    ========================================================= -->
+    <!-- ========================================================= CUSTOM CURSOR ========================================================= -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- =========================================================
-    NAVBAR
-    ========================================================= -->
+    <!-- ========================================================= NAVBAR ========================================================= -->
     <nav id="nav">
         <div class="container nav-inner">
             <a href="#home" class="logo">KWD<span>-CMD</span></a>
-
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" data-en="About" data-fa="درباره من">About</a></li>
                 <li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a></li>
@@ -1698,7 +1435,6 @@
                 <li><a href="#path" data-en="Learning" data-fa="مسیر یادگیری">Learning</a></li>
                 <li><a href="#contact" data-en="Contact" data-fa="ارتباط">Contact</a></li>
             </ul>
-
             <!-- Language Switcher -->
             <div class="lang-switcher" id="langSwitcher">
                 <button class="lang-button" id="langButton" aria-label="Change language">
@@ -1711,14 +1447,11 @@
                     <button class="lang-option" data-lang="fa">فارسی <span class="lang-check">✓</span></button>
                 </div>
             </div>
-
             <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
-    <!-- =========================================================
-    HERO SECTION
-    ========================================================= -->
+    <!-- ========================================================= HERO SECTION ========================================================= -->
     <header class="hero" id="home">
         <div class="container hero-layout">
             <div class="reveal">
@@ -1726,22 +1459,18 @@
                     <span class="status-dot"></span>
                     <span data-en="SYSTEM ONLINE" data-fa="سیستم آنلاین است">SYSTEM ONLINE</span>
                 </div>
-
                 <h1>
                     KWD<span class="gradient">-CMD</span><br>
                     <span class="glitch" data-text="Cyber Security" data-en="Cyber Security" data-fa="امنیت سایبری">Cyber Security</span>
                 </h1>
-
-                <p class="hero-description" data-en="I'm Kian Kheiri. Exploring Cyber Security, Network Security, Web Security, Kali Linux and VPN & Proxy through hands-on learning, legal labs and real projects." data-fa="من کیان خیری هستم. در حال یادگیری و فعالیت در حوزه امنیت سایبری، امنیت شبکه، امنیت وب، کالی لینوکس و VPN و Proxy از طریق تمرین عملی، لابراتوارهای مجاز و پروژه‌های واقعی.">
+                <p class="hero-description" data-en="I'm Kian Kheiri. Exploring Cyber Security, Network Security, Web Security, Kali Linux and VPN &amp; Proxy through hands-on learning, legal labs and real projects." data-fa="من کیان خیری هستم. در حال یادگیری و فعالیت در حوزه امنیت سایبری، امنیت شبکه، امنیت وب، کالی لینوکس و VPN و Proxy از طریق تمرین عملی، لابراتوارهای مجاز و پروژه‌های واقعی.">
                     I'm Kian Kheiri.<br>Exploring <strong>Cyber Security</strong>, Network Security, Web Security, Kali Linux and VPN &amp; Proxy through hands-on learning, legal labs and real projects.
                 </p>
-
                 <div class="buttons">
                     <a href="#projects" class="btn primary" data-en="Explore Projects →" data-fa="مشاهده پروژه‌ها →">Explore Projects →</a>
                     <a href="https://github.com/kwd-cmd" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
                 </div>
             </div>
-
             <!-- Terminal -->
             <div class="terminal-wrap reveal">
                 <div class="terminal-glow"></div>
@@ -1763,9 +1492,7 @@
         </div>
     </header>
 
-    <!-- =========================================================
-    ABOUT SECTION
-    ========================================================= -->
+    <!-- ========================================================= ABOUT SECTION ========================================================= -->
     <section id="about">
         <div class="container">
             <div class="section-head reveal">
@@ -1773,20 +1500,17 @@
                 <h2 data-en="Built around security." data-fa="ساخته‌شده حول امنیت.">Built around security.</h2>
                 <p data-en="KWD-CMD is my personal space for learning, experimenting and documenting my journey through Cyber Security." data-fa="KWD-CMD فضای شخصی من برای یادگیری، آزمایش و ثبت مسیرم در دنیای امنیت سایبری است.">KWD-CMD is my personal space for learning, experimenting and documenting my journey through Cyber Security.</p>
             </div>
-
             <div class="cards">
                 <article class="card tilt reveal">
                     <div class="card-number" data-en="01 / CYBER" data-fa="۰۱ / سایبر">01 / CYBER</div>
                     <h3 data-en="Cyber Security" data-fa="امنیت سایبری">Cyber Security</h3>
                     <p data-en="Understanding vulnerabilities, attack surfaces, defensive concepts and security testing through authorized environments." data-fa="شناخت آسیب‌پذیری‌ها، سطوح حمله، مفاهیم دفاعی و تست امنیت در محیط‌های مجاز.">Understanding vulnerabilities, attack surfaces, defensive concepts and security testing through authorized environments.</p>
                 </article>
-
                 <article class="card tilt reveal">
                     <div class="card-number" data-en="02 / NETWORK" data-fa="۰۲ / شبکه">02 / NETWORK</div>
                     <h3 data-en="Network Security" data-fa="امنیت شبکه">Network Security</h3>
                     <p data-en="TCP/IP, DNS, HTTP/S, ports, routing, firewalls, traffic analysis and secure communication." data-fa="TCP/IP، DNS، HTTP/S، پورت‌ها، مسیریابی، فایروال، تحلیل ترافیک و ارتباطات امن.">TCP/IP, DNS, HTTP/S, ports, routing, firewalls, traffic analysis and secure communication.</p>
                 </article>
-
                 <article class="card tilt reveal">
                     <div class="card-number" data-en="03 / LINUX" data-fa="۰۳ / لینوکس">03 / LINUX</div>
                     <h3 data-en="Kali Linux" data-fa="کالی لینوکس">Kali Linux</h3>
@@ -1796,9 +1520,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    SKILLS SECTION
-    ========================================================= -->
+    <!-- ========================================================= SKILLS SECTION ========================================================= -->
     <section id="skills">
         <div class="container">
             <div class="section-head reveal">
@@ -1806,7 +1528,6 @@
                 <h2 data-en="Technical focus." data-fa="تمرکز فنی.">Technical focus.</h2>
                 <p data-en="Current areas of study and practical development." data-fa="حوزه‌هایی که در حال حاضر روی آن‌ها مطالعه و کار عملی انجام می‌دهم.">Current areas of study and practical development.</p>
             </div>
-
             <div class="skills-grid">
                 <div class="skill reveal">
                     <div class="skill-top">
@@ -1854,9 +1575,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    PROJECTS SECTION
-    ========================================================= -->
+    <!-- ========================================================= PROJECTS SECTION ========================================================= -->
     <section id="projects">
         <div class="container">
             <div class="section-head reveal">
@@ -1864,7 +1583,6 @@
                 <h2 data-en="Things I've built." data-fa="چیزهایی که ساخته‌ام.">Things I've built.</h2>
                 <p data-en="Practical projects used to turn concepts into real technical experience." data-fa="پروژه‌های عملی برای تبدیل مفاهیم تئوری به تجربه فنی واقعی.">Practical projects used to turn concepts into real technical experience.</p>
             </div>
-
             <div class="projects-grid">
                 <article class="project tilt reveal">
                     <div class="project-status"><i></i><span data-en="ACTIVE" data-fa="فعال">ACTIVE</span></div>
@@ -1873,7 +1591,6 @@
                     <p data-en="A personal laboratory for learning network discovery, services, ports and network security concepts." data-fa="یک محیط شخصی برای یادگیری شناسایی شبکه، سرویس‌ها، پورت‌ها و مفاهیم امنیت شبکه.">A personal laboratory for learning network discovery, services, ports and network security concepts.</p>
                     <div class="tags"><span class="tag">Linux</span><span class="tag">Networking</span><span class="tag">Security</span><span class="tag">Nmap</span></div>
                 </article>
-
                 <article class="project tilt reveal">
                     <div class="project-status"><i></i><span data-en="ACTIVE" data-fa="فعال">ACTIVE</span></div>
                     <div class="project-number" data-en="PROJECT_02" data-fa="پروژه_۰۲">PROJECT_02</div>
@@ -1881,7 +1598,6 @@
                     <p data-en="Learning environment focused on HTTP, web architecture and common web security concepts." data-fa="محیطی برای یادگیری HTTP، معماری وب و مفاهیم رایج امنیت وب.">Learning environment focused on HTTP, web architecture and common web security concepts.</p>
                     <div class="tags"><span class="tag">HTTP</span><span class="tag">Web</span><span class="tag">Security</span><span class="tag">Burp</span></div>
                 </article>
-
                 <article class="project tilt reveal">
                     <div class="project-status"><i></i><span data-en="LAB" data-fa="لابراتوار">LAB</span></div>
                     <div class="project-number" data-en="PROJECT_03" data-fa="پروژه_۰۳">PROJECT_03</div>
@@ -1889,7 +1605,6 @@
                     <p data-en="Exploring VPNs, proxies, routing, tunnels and secure network communication inside controlled environments." data-fa="بررسی VPN، Proxy، مسیریابی، تونل‌ها و ارتباطات امن شبکه در محیط‌های کنترل‌شده.">Exploring VPNs, proxies, routing, tunnels and secure network communication inside controlled environments.</p>
                     <div class="tags"><span class="tag">VPN</span><span class="tag">Proxy</span><span class="tag">Linux</span><span class="tag">Networking</span></div>
                 </article>
-
                 <article class="project tilt reveal">
                     <div class="project-status"><i></i><span data-en="BUILDING" data-fa="در حال ساخت">BUILDING</span></div>
                     <div class="project-number" data-en="PROJECT_04" data-fa="پروژه_۰۴">PROJECT_04</div>
@@ -1901,9 +1616,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    SECURITY LAB SECTION
-    ========================================================= -->
+    <!-- ========================================================= SECURITY LAB SECTION ========================================================= -->
     <section id="labs">
         <div class="container">
             <div class="section-head reveal">
@@ -1911,7 +1624,6 @@
                 <h2 data-en="Live environment." data-fa="محیط زنده.">Live environment.</h2>
                 <p data-en="A visual representation of my security learning environment." data-fa="نمایشی از محیط یادگیری و آزمایش امنیتی من.">A visual representation of my security learning environment.</p>
             </div>
-
             <div class="dashboard">
                 <div class="monitor reveal">
                     <div class="monitor-head">
@@ -1926,7 +1638,6 @@
                         <div class="log">[14:02:12] monitoring active</div>
                     </div>
                 </div>
-
                 <div class="monitor reveal">
                     <div class="monitor-head">
                         <span class="monitor-title">SYSTEM_METRICS</span>
@@ -1955,9 +1666,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    CERTIFICATES SECTION
-    ========================================================= -->
+    <!-- ========================================================= CERTIFICATES SECTION ========================================================= -->
     <section id="certificates">
         <div class="container">
             <div class="section-head reveal">
@@ -1965,16 +1674,13 @@
                 <h2 data-en="Certificates." data-fa="مدارک و گواهی‌ها.">Certificates.</h2>
                 <p data-en="Verified learning achievements and completed technical courses." data-fa="دستاوردهای یادگیری تأییدشده و دوره‌های فنی تکمیل‌شده.">Verified learning achievements and completed technical courses.</p>
             </div>
-
             <div class="certs-grid" id="certsGrid">
                 <!-- Certificates rendered dynamically by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- =========================================================
-    LEARNING PATH SECTION
-    ========================================================= -->
+    <!-- ========================================================= LEARNING PATH SECTION ========================================================= -->
     <section id="path">
         <div class="container">
             <div class="section-head reveal">
@@ -1982,7 +1688,6 @@
                 <h2 data-en="Building the foundation." data-fa="ساختن پایه‌ها.">Building the foundation.</h2>
                 <p data-en="From Linux and networking fundamentals toward advanced security concepts." data-fa="از مبانی Linux و Networking تا مفاهیم پیشرفته امنیت.">From Linux and networking fundamentals toward advanced security concepts.</p>
             </div>
-
             <div class="timeline" id="timeline">
                 <div class="timeline-item">
                     <div class="node">01</div>
@@ -2037,9 +1742,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    CONTACT SECTION
-    ========================================================= -->
+    <!-- ========================================================= CONTACT SECTION ========================================================= -->
     <section id="contact">
         <div class="container">
             <div class="contact reveal">
@@ -2054,9 +1757,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-    FOOTER
-    ========================================================= -->
+    <!-- ========================================================= FOOTER ========================================================= -->
     <footer>
         <div class="container footer-inner">
             <div>
@@ -2068,39 +1769,30 @@
         </div>
     </footer>
 
-    <!-- =========================================================
-    CERTIFICATE IMAGE MODAL
-    ========================================================= -->
+    <!-- ========================================================= CERTIFICATE IMAGE MODAL ========================================================= -->
     <div class="cert-modal" id="certModal">
         <img src="" alt="Certificate preview" id="modalImage">
     </div>
 
     <script>
-        /* =========================================================
-                   CONFIGURATION & DATA
-                   ========================================================= */
-
+        /* ========================================================= CONFIGURATION & DATA ========================================================= */
         /**
          * CERTIFICATES DATA
-         * 
-         * To add a new certificate, simply push a new object
-         * to this array with the following structure:
-         * 
-         * {
-         *   title: "Certificate Title",
-         *   course: "Course Name",
-         *   provider: "Provider Name",
-         *   student: "Student Name",
-         *   instructor: "Instructor Name",
-         *   certificateId: "CERT_ID_123",
-         *   date: "Month Day, Year",
-         *   status: "Completed",
-         *   verifyUrl: "https://...",
-         *   certificateUrl: "", // optional - if empty and imageUrl exists, opens modal
-         *   imageUrl: "path/to/image.jpg" // optional - certificate image
-         * }
+         * مدرک جدید (HP) به عنوان اولین مدرک اضافه شده
          */
         const certificatesData = [{
+            title: "Certificate of Completion",
+            course: "Introduction to Cybersecurity Awareness",
+            provider: "HP LIFE — HP Foundation",
+            student: "Kian Kheiri",
+            instructor: "Michele Malejki (Executive Director, HP Foundation)",
+            certificateId: "abe422ae-5538-48ae-8c40-9468a23072a4",
+            date: "August 17, 2026",
+            status: "Completed",
+            verifyUrl: "https://www.hp.com/go/verify",
+            certificateUrl: "",
+            imageUrl: "https://i.ibb.co/5WYGwqXz/Introduction-to-Cybersecurity-Awareness.png"
+        }, {
             title: "Certificate of Completion",
             course: "Python Programming Essentials",
             provider: "FaraDars",
@@ -2110,13 +1802,12 @@
             date: "August 17, 2026",
             status: "Completed",
             verifyUrl: "https://faradars.org/verify/E26910AE",
-            certificateUrl: "", // خالی؛ با کلیک روی View تصویر بزرگ باز می‌شود
+            certificateUrl: "",
             imageUrl: "https://13lz4rfga3.ucarecd.net/0f1207e8-8ffc-4fda-a1a0-081e1e42211e/certificate_e26910ae_en1.jpg"
         }];
 
         /**
          * TRANSLATIONS
-         * Labels used in dynamically rendered certificate cards.
          */
         const certTranslations = {
             en: {
@@ -2139,16 +1830,12 @@
             }
         };
 
-        /* =========================================================
-                   STATE
-                   ========================================================= */
+        /* ========================================================= STATE ========================================================= */
         let currentLanguage = 'en';
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isMobile = window.matchMedia('(max-width: 850px)').matches;
 
-        /* =========================================================
-                   DOM REFERENCES
-                   ========================================================= */
+        /* ========================================================= DOM REFERENCES ========================================================= */
         const loader = document.getElementById('loader');
         const nav = document.getElementById('nav');
         const menuBtn = document.getElementById('menuBtn');
@@ -2168,25 +1855,19 @@
         const certModal = document.getElementById('certModal');
         const modalImage = document.getElementById('modalImage');
 
-        /* =========================================================
-                   LOADER
-                   ========================================================= */
+        /* ========================================================= LOADER ========================================================= */
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loader.classList.add('hide');
             }, 2300);
         });
-
-        /* Fallback if load event already fired */
         if (document.readyState === 'complete') {
             setTimeout(() => {
                 loader.classList.add('hide');
             }, 2300);
         }
 
-        /* =========================================================
-                   CUSTOM CURSOR
-                   ========================================================= */
+        /* ========================================================= CUSTOM CURSOR ========================================================= */
         if (!isMobile && !prefersReducedMotion) {
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = e.clientX + 'px';
@@ -2197,44 +1878,34 @@
                 mouseGlow.style.top = e.clientY + 'px';
             });
         } else {
-            // Hide cursor elements on mobile
             if (cursor) cursor.style.display = 'none';
             if (cursorDot) cursorDot.style.display = 'none';
             if (mouseGlow) mouseGlow.style.display = 'none';
         }
 
-        /* =========================================================
-                   NAVBAR SCROLL
-                   ========================================================= */
+        /* ========================================================= NAVBAR SCROLL ========================================================= */
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        /* =========================================================
-                   MOBILE MENU
-                   ========================================================= */
+        /* ========================================================= MOBILE MENU ========================================================= */
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('open');
         });
-
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
             });
         });
 
-        /* =========================================================
-                   LANGUAGE SYSTEM
-                   ========================================================= */
+        /* ========================================================= LANGUAGE SYSTEM ========================================================= */
         langButton.addEventListener('click', (e) => {
             e.stopPropagation();
             langSwitcher.classList.toggle('open');
         });
-
         document.addEventListener('click', () => {
             langSwitcher.classList.remove('open');
         });
-
         langOptions.forEach(option => {
             option.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -2244,15 +1915,10 @@
 
         function changeLanguage(lang) {
             currentLanguage = lang;
-
-            // Update HTML attributes
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-
-            // Update current language indicator
             currentLangSpan.textContent = lang === 'fa' ? 'FA' : 'EN';
 
-            // Update all elements with data-en and data-fa attributes
             document.querySelectorAll('[data-en][data-fa]').forEach(element => {
                 const value = element.dataset[lang];
                 if (value !== undefined) {
@@ -2260,29 +1926,17 @@
                 }
             });
 
-            // Update page title
-            document.title = lang === 'fa' ?
-                'KWD-CMD — امنیت سایبری' :
-                'KWD-CMD — Cyber Security';
+            document.title = lang === 'fa' ? 'KWD-CMD — امنیت سایبری' : 'KWD-CMD — Cyber Security';
 
-            // Update language option active states
             langOptions.forEach(option => {
                 option.classList.toggle('active', option.dataset.lang === lang);
             });
-
-            // Close language menu
             langSwitcher.classList.remove('open');
-
-            // Save to localStorage
             localStorage.setItem('kwd-language', lang);
-
-            // Re-render certificates with new language
             renderCertificates();
         }
 
-        /* =========================================================
-                   TERMINAL TYPING ANIMATION
-                   ========================================================= */
+        /* ========================================================= TERMINAL TYPING ========================================================= */
         const terminalCommands = [
             'nmap -sV target.local',
             'sudo systemctl status vpn',
@@ -2291,14 +1945,12 @@
             'tcpdump -i eth0',
             'whoami'
         ];
-
         let commandIndex = 0;
         let charIndex = 0;
         let deleting = false;
 
         function typeCommand() {
             const current = terminalCommands[commandIndex];
-
             if (!deleting) {
                 typingEl.textContent = current.substring(0, charIndex++);
                 if (charIndex > current.length) {
@@ -2314,19 +1966,15 @@
                     commandIndex = (commandIndex + 1) % terminalCommands.length;
                 }
             }
-
             setTimeout(typeCommand, deleting ? 35 : 75);
         }
-
         if (!prefersReducedMotion) {
             typeCommand();
         } else {
             typingEl.textContent = terminalCommands[0];
         }
 
-        /* =========================================================
-                   REVEAL OBSERVER
-                   ========================================================= */
+        /* ========================================================= REVEAL OBSERVER ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2335,14 +1983,11 @@
                 }
             });
         }, { threshold: .12 });
-
         document.querySelectorAll('.reveal').forEach(el => {
             revealObserver.observe(el);
         });
 
-        /* =========================================================
-                   SKILLS ANIMATION
-                   ========================================================= */
+        /* ========================================================= SKILLS ANIMATION ========================================================= */
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2356,30 +2001,23 @@
                 }
             });
         }, { threshold: .4 });
-
         document.querySelectorAll('.skill').forEach(el => {
             skillObserver.observe(el);
         });
 
-        /* =========================================================
-                   TIMELINE ANIMATION
-                   ========================================================= */
+        /* ========================================================= TIMELINE ANIMATION ========================================================= */
         const timelineObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 timeline.classList.add('active');
                 timelineObserver.disconnect();
             }
         }, { threshold: .2 });
-
         timelineObserver.observe(timeline);
 
-        /* =========================================================
-                   COUNTER ANIMATION
-                   ========================================================= */
+        /* ========================================================= COUNTER ANIMATION ========================================================= */
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-
                 const el = entry.target;
                 const target = Number(el.dataset.count);
                 let value = 0;
@@ -2396,23 +2034,18 @@
                         el.textContent = target;
                     }
                 }
-
                 requestAnimationFrame(update);
                 counterObserver.unobserve(el);
             });
         }, { threshold: .6 });
-
         document.querySelectorAll('.metric-value').forEach(el => {
             counterObserver.observe(el);
         });
 
-        /* =========================================================
-                   3D TILT EFFECT
-                   ========================================================= */
+        /* ========================================================= 3D TILT EFFECT ========================================================= */
         document.querySelectorAll('.tilt').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 if (window.innerWidth < 850 || prefersReducedMotion) return;
-
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -2420,19 +2053,15 @@
                 const centerY = rect.height / 2;
                 const rotateX = ((y - centerY) / centerY) * -4;
                 const rotateY = ((x - centerX) / centerX) * 4;
-
                 card.style.transform =
                     `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.01)`;
             });
-
             card.addEventListener('mouseleave', () => {
                 card.style.transform = '';
             });
         });
 
-        /* =========================================================
-                   SECURITY LOG AUTO-UPDATE
-                   ========================================================= */
+        /* ========================================================= SECURITY LOG AUTO-UPDATE ========================================================= */
         const logMessages = [
             'packet analyzer ready',
             'network interface detected',
@@ -2445,9 +2074,7 @@
             'lab environment synchronized',
             'monitoring authorized environment'
         ];
-
         let logIndex = 0;
-
         setInterval(() => {
             if (!logsEl) return;
             const line = document.createElement('div');
@@ -2455,17 +2082,13 @@
             const time = new Date().toLocaleTimeString([], { hour12: false });
             line.textContent = `[${time}] ${logMessages[logIndex]}`;
             logsEl.appendChild(line);
-
             if (logsEl.children.length > 9) {
                 logsEl.removeChild(logsEl.firstElementChild);
             }
-
             logIndex = (logIndex + 1) % logMessages.length;
         }, 1800);
 
-        /* =========================================================
-                   CERTIFICATES RENDERER
-                   ========================================================= */
+        /* ========================================================= CERTIFICATES RENDERER ========================================================= */
         function renderCertificates() {
             if (!certsGrid) return;
             const t = certTranslations[currentLanguage] || certTranslations.en;
@@ -2478,12 +2101,10 @@
                 const hasImage = cert.imageUrl && cert.imageUrl.trim() !== '';
                 const hasViewUrl = cert.certificateUrl && cert.certificateUrl.trim() !== '';
 
-                // تصویر تام‌نیل (در صورت وجود)
                 const thumbnailHtml = hasImage ?
                     `<img src="${cert.imageUrl}" alt="${cert.course}" class="cert-thumb" data-full="${cert.imageUrl}">` :
                     '';
 
-                // دکمه View
                 const viewButton = hasViewUrl ?
                     `<a href="${cert.certificateUrl}" target="_blank" rel="noopener" class="btn btn-view">${t.viewCertificate} ↗</a>` :
                     hasImage ?
@@ -2492,8 +2113,7 @@
 
                 card.innerHTML = `
                     <div class="cert-status-badge">
-                        <i></i>
-                        ${cert.status}
+                        <i></i> ${cert.status}
                     </div>
                     <div class="cert-title">${cert.title}</div>
                     <div class="cert-course">${cert.course}</div>
@@ -2511,34 +2131,28 @@
                         ${viewButton}
                     </div>
                 `;
-
                 certsGrid.appendChild(card);
             });
 
-            // Attach event listeners for image modal and thumbnails
+            // Attach event listeners for image modal
             document.querySelectorAll('.cert-thumb').forEach(img => {
                 img.addEventListener('click', (e) => {
                     modalImage.src = e.target.dataset.full;
                     certModal.classList.add('active');
                 });
             });
-
             document.querySelectorAll('.view-image-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     modalImage.src = e.target.dataset.image;
                     certModal.classList.add('active');
                 });
             });
-
-            // Modal close on background click
             certModal.addEventListener('click', () => {
                 certModal.classList.remove('active');
             });
         }
 
-        /* =========================================================
-                   PARTICLE NETWORK BACKGROUND
-                   ========================================================= */
+        /* ========================================================= PARTICLE NETWORK BACKGROUND ========================================================= */
         (function initParticles() {
             const ctx = particlesCanvas.getContext('2d');
             let particles = [];
@@ -2551,10 +2165,8 @@
 
             function createParticles() {
                 particles = [];
-                const amount = isMobile ?
-                    Math.min(50, Math.floor(window.innerWidth / 18)) :
-                    Math.min(100, Math.floor(window.innerWidth / 12));
-
+                const amount = isMobile ? Math.min(50, Math.floor(window.innerWidth / 18)) : Math.min(100, Math.floor(
+                window.innerWidth / 12));
                 for (let i = 0; i < amount; i++) {
                     particles.push({
                         x: Math.random() * width,
@@ -2568,21 +2180,16 @@
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
-
                 particles.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
-
                     if (p.x < 0 || p.x > width) p.vx *= -1;
                     if (p.y < 0 || p.y > height) p.vy *= -1;
-
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctx.fillStyle = 'rgba(53,231,255,.55)';
                     ctx.fill();
                 });
-
-                // Draw connections
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
                         const a = particles[i];
@@ -2590,7 +2197,6 @@
                         const dx = a.x - b.x;
                         const dy = a.y - b.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
-
                         if (distance < 130) {
                             ctx.beginPath();
                             ctx.moveTo(a.x, a.y);
@@ -2601,36 +2207,27 @@
                         }
                     }
                 }
-
                 requestAnimationFrame(animate);
             }
-
             resize();
             createParticles();
             animate();
-
             window.addEventListener('resize', () => {
                 resize();
                 createParticles();
             });
         })();
 
-        /* =========================================================
-                   INITIALIZATION
-                   ========================================================= */
+        /* ========================================================= INITIALIZATION ========================================================= */
         (function init() {
-            // Restore saved language
             const savedLanguage = localStorage.getItem('kwd-language');
             if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'fa')) {
                 changeLanguage(savedLanguage);
             } else {
                 changeLanguage('en');
             }
-
-            // Render certificates
             renderCertificates();
         })();
     </script>
 </body>
-
 </html>
