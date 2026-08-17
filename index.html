@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KWD-CMD — Cyber Security</title>
-    <!-- ========================================================= FONTS & CSS VARIABLES ========================================================= -->
     <style>
+        /* ===== فونت و متغیرها ===== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
         :root {
             --bg: #03050a;
@@ -40,7 +40,6 @@
             color: var(--text);
             font-family: var(--font-sans);
             width: 100%;
-            max-width: 100%;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -57,21 +56,19 @@
             max-width: 100%;
             display: block;
         }
-        /* ========================================================= BACKGROUND LAYERS ========================================================= */
+
+        /* ===== پس‌زمینه‌ها ===== */
         #particles {
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100vh;
-            max-width: 100%;
             z-index: -5;
             pointer-events: none;
         }
         .grid-bg {
             position: fixed;
             inset: 0;
-            width: 100%;
-            height: 100%;
             z-index: -4;
             pointer-events: none;
             background-image: linear-gradient(rgba(77, 163, 255, .045) 1px, transparent 1px),
@@ -82,9 +79,6 @@
             animation: gridMove 18s linear infinite;
         }
         @keyframes gridMove {
-            from {
-                background-position: 0 0;
-            }
             to {
                 background-position: 0 55px;
             }
@@ -127,7 +121,8 @@
             z-index: -2;
             transition: opacity .3s;
         }
-        /* ========================================================= CUSTOM CURSOR ========================================================= */
+
+        /* ===== مکان‌نما ===== */
         .cursor {
             position: fixed;
             width: 18px;
@@ -150,7 +145,8 @@
             z-index: 10000;
             transform: translate(-50%, -50%);
         }
-        /* ========================================================= LOADER ========================================================= */
+
+        /* ===== لودر ===== */
         .loader {
             position: fixed;
             inset: 0;
@@ -206,7 +202,8 @@
             font-size: 11px;
             letter-spacing: .5px;
         }
-        /* ========================================================= NAVBAR ========================================================= */
+
+        /* ===== نوار بالا ===== */
         nav {
             position: fixed;
             top: 0;
@@ -275,7 +272,8 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        /* Language Switcher */
+
+        /* انتخابگر زبان */
         .lang-switcher {
             position: relative;
             flex-shrink: 0;
@@ -351,7 +349,8 @@
         .lang-option.active .lang-check {
             opacity: 1;
         }
-        /* Mobile Menu Button */
+
+        /* دکمه منو موبایل */
         .menu-btn {
             display: none;
             width: 42px;
@@ -368,7 +367,8 @@
         .menu-btn:hover {
             border-color: rgba(53, 231, 255, .3);
         }
-        /* ========================================================= HERO SECTION ========================================================= */
+
+        /* ===== بخش اول (Hero) ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -524,7 +524,8 @@
         .btn.primary:hover {
             box-shadow: 0 0 45px rgba(53, 231, 255, .3);
         }
-        /* Terminal */
+
+        /* ترمینال */
         .terminal-wrap {
             position: relative;
         }
@@ -621,7 +622,8 @@
                 opacity: 0;
             }
         }
-        /* ========================================================= SECTIONS GENERAL ========================================================= */
+
+        /* ===== بخش‌های عمومی ===== */
         section {
             padding: 120px 0;
             position: relative;
@@ -648,7 +650,8 @@
             line-height: 1.8;
             font-size: 15px;
         }
-        /* ========================================================= ABOUT CARDS ========================================================= */
+
+        /* ===== درباره ===== */
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -698,7 +701,8 @@
             font-size: 13px;
             line-height: 1.9;
         }
-        /* ========================================================= SKILLS ========================================================= */
+
+        /* ===== مهارت‌ها ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -744,7 +748,8 @@
             border-radius: 10px;
             transition: width 1.8s var(--ease);
         }
-        /* ========================================================= PROJECTS ========================================================= */
+
+        /* ===== پروژه‌ها ===== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -835,7 +840,8 @@
             box-shadow: 0 0 8px var(--green);
             display: block;
         }
-        /* ========================================================= SECURITY LAB / DASHBOARD ========================================================= */
+
+        /* ===== داشبورد امنیتی ===== */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -914,12 +920,15 @@
             margin-top: 5px;
             letter-spacing: .5px;
         }
-        /* ========================================================= CERTIFICATES ========================================================= */
+
+        /* ===== مدارک (تغییرات اصلی اینجاست) ===== */
         .certs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            /* همیشه ۳ ستون */
             gap: 20px;
         }
+
         .cert-card {
             position: relative;
             padding: 28px;
@@ -931,6 +940,8 @@
             display: flex;
             flex-direction: column;
             gap: 14px;
+            min-height: 380px;
+            /* ارتفاع ثابت برای یکدستی */
         }
         .cert-card::before {
             content: "";
@@ -954,6 +965,7 @@
             border-color: rgba(53, 231, 255, .3);
             box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
         }
+
         .cert-status-badge {
             display: inline-flex;
             align-items: center;
@@ -976,6 +988,7 @@
             box-shadow: 0 0 6px var(--green);
             display: block;
         }
+
         .cert-title {
             font-size: 20px;
             font-weight: 700;
@@ -985,23 +998,6 @@
             font-size: 14px;
             font-weight: 600;
             color: var(--cyan);
-        }
-        .cert-details {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-        .cert-details span {
-            display: flex;
-            gap: 6px;
-        }
-        .cert-details strong {
-            color: var(--text);
-            font-weight: 600;
-            min-width: 80px;
         }
         .cert-provider-badge {
             display: inline-flex;
@@ -1016,17 +1012,55 @@
             font-size: 10px;
             width: fit-content;
         }
+
+        .cert-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .cert-details span {
+            display: flex;
+            gap: 6px;
+        }
+        .cert-details strong {
+            color: var(--text);
+            font-weight: 600;
+            min-width: 80px;
+        }
         .cert-id {
             font-family: var(--font-mono);
             font-size: 11px;
             color: var(--cyan);
             letter-spacing: 1px;
         }
+
+        /* تصویر مدرک – یکدست و هم‌اندازه */
+        .cert-thumb {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: transform .3s, border-color .3s;
+            cursor: pointer;
+            margin-top: 6px;
+            background: #0a111d;
+        }
+        .cert-thumb:hover {
+            transform: scale(1.02);
+            border-color: rgba(53, 231, 255, .4);
+        }
+
         .cert-actions {
             display: flex;
             gap: 10px;
             margin-top: auto;
             padding-top: 10px;
+            flex-wrap: wrap;
         }
         .cert-actions .btn {
             padding: 9px 15px;
@@ -1056,22 +1090,8 @@
             pointer-events: none;
             cursor: not-allowed;
         }
-        /* Certificate image thumbnail */
-        .cert-thumb {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            transition: transform .3s, border-color .3s;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .cert-thumb:hover {
-            transform: scale(1.02);
-            border-color: rgba(53, 231, 255, .4);
-        }
-        /* Certificate image modal */
+
+        /* مودال برای بزرگ‌نمایی مدرک */
         .cert-modal {
             display: none;
             position: fixed;
@@ -1095,7 +1115,8 @@
             box-shadow: 0 0 60px rgba(53, 231, 255, .2);
             cursor: default;
         }
-        /* ========================================================= TIMELINE ========================================================= */
+
+        /* ===== تایم‌لاین ===== */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -1187,7 +1208,8 @@
             font-size: 11px;
             line-height: 1.7;
         }
-        /* ========================================================= CONTACT ========================================================= */
+
+        /* ===== تماس ===== */
         .contact {
             position: relative;
             padding: 80px 30px;
@@ -1210,7 +1232,8 @@
             font-size: 15px;
             line-height: 1.8;
         }
-        /* ========================================================= FOOTER ========================================================= */
+
+        /* ===== فوتر ===== */
         footer {
             padding: 50px 0;
             border-top: 1px solid var(--border);
@@ -1232,7 +1255,8 @@
             letter-spacing: 1px;
             margin-bottom: 4px;
         }
-        /* ========================================================= REVEAL ANIMATION ========================================================= */
+
+        /* ===== انیمیشن نمایان شدن ===== */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(.98);
@@ -1242,7 +1266,8 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-        /* ========================================================= RTL SUPPORT ========================================================= */
+
+        /* ===== پشتیبانی از RTL ===== */
         html[dir="rtl"] .hero h1,
         html[dir="rtl"] .section-head h2,
         html[dir="rtl"] .contact h2 {
@@ -1294,7 +1319,8 @@
             right: auto;
             left: -100px;
         }
-        /* ========================================================= RESPONSIVE ========================================================= */
+
+        /* ===== ریسپانسیو ===== */
         @media (max-width: 850px) {
             .nav-links {
                 position: absolute;
@@ -1357,10 +1383,19 @@
             .mouse-glow {
                 display: none;
             }
+
+            /* مدارک در موبایل به یک ستون */
             .certs-grid {
                 grid-template-columns: 1fr;
             }
+            .cert-card {
+                min-height: auto;
+            }
+            .cert-thumb {
+                height: 200px;
+            }
         }
+
         @media (max-width: 500px) {
             .hero h1 {
                 font-size: 43px;
@@ -1399,11 +1434,14 @@
             .cert-actions {
                 flex-direction: column;
             }
+            .cert-thumb {
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- ========================================================= LOADER ========================================================= -->
+    <!-- ===== لودر ===== -->
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="loader-logo">KWD<span>-CMD</span></div>
@@ -1412,17 +1450,17 @@
         </div>
     </div>
 
-    <!-- ========================================================= BACKGROUND LAYERS ========================================================= -->
+    <!-- ===== پس‌زمینه ===== -->
     <canvas id="particles"></canvas>
     <div class="grid-bg"></div>
     <div class="scanline"></div>
     <div class="mouse-glow" id="mouseGlow"></div>
 
-    <!-- ========================================================= CUSTOM CURSOR ========================================================= -->
+    <!-- ===== مکان‌نما ===== -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- ========================================================= NAVBAR ========================================================= -->
+    <!-- ===== نوار بالا ===== -->
     <nav id="nav">
         <div class="container nav-inner">
             <a href="#home" class="logo">KWD<span>-CMD</span></a>
@@ -1435,7 +1473,6 @@
                 <li><a href="#path" data-en="Learning" data-fa="مسیر یادگیری">Learning</a></li>
                 <li><a href="#contact" data-en="Contact" data-fa="ارتباط">Contact</a></li>
             </ul>
-            <!-- Language Switcher -->
             <div class="lang-switcher" id="langSwitcher">
                 <button class="lang-button" id="langButton" aria-label="Change language">
                     <span class="lang-icon">◎</span>
@@ -1451,7 +1488,7 @@
         </div>
     </nav>
 
-    <!-- ========================================================= HERO SECTION ========================================================= -->
+    <!-- ===== بخش اول ===== -->
     <header class="hero" id="home">
         <div class="container hero-layout">
             <div class="reveal">
@@ -1471,7 +1508,6 @@
                     <a href="https://github.com/kwd-cmd" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
                 </div>
             </div>
-            <!-- Terminal -->
             <div class="terminal-wrap reveal">
                 <div class="terminal-glow"></div>
                 <div class="terminal">
@@ -1492,7 +1528,7 @@
         </div>
     </header>
 
-    <!-- ========================================================= ABOUT SECTION ========================================================= -->
+    <!-- ===== درباره ===== -->
     <section id="about">
         <div class="container">
             <div class="section-head reveal">
@@ -1520,7 +1556,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= SKILLS SECTION ========================================================= -->
+    <!-- ===== مهارت‌ها ===== -->
     <section id="skills">
         <div class="container">
             <div class="section-head reveal">
@@ -1575,7 +1611,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= PROJECTS SECTION ========================================================= -->
+    <!-- ===== پروژه‌ها ===== -->
     <section id="projects">
         <div class="container">
             <div class="section-head reveal">
@@ -1616,7 +1652,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= SECURITY LAB SECTION ========================================================= -->
+    <!-- ===== لابراتوار امنیتی ===== -->
     <section id="labs">
         <div class="container">
             <div class="section-head reveal">
@@ -1666,7 +1702,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= CERTIFICATES SECTION ========================================================= -->
+    <!-- ===== مدارک (تغییرات اصلی در بخش داده‌های جاوااسکریپت هم اعمال شده) ===== -->
     <section id="certificates">
         <div class="container">
             <div class="section-head reveal">
@@ -1674,13 +1710,11 @@
                 <h2 data-en="Certificates." data-fa="مدارک و گواهی‌ها.">Certificates.</h2>
                 <p data-en="Verified learning achievements and completed technical courses." data-fa="دستاوردهای یادگیری تأییدشده و دوره‌های فنی تکمیل‌شده.">Verified learning achievements and completed technical courses.</p>
             </div>
-            <div class="certs-grid" id="certsGrid">
-                <!-- Certificates rendered dynamically by JavaScript -->
-            </div>
+            <div class="certs-grid" id="certsGrid"></div>
         </div>
     </section>
 
-    <!-- ========================================================= LEARNING PATH SECTION ========================================================= -->
+    <!-- ===== مسیر یادگیری ===== -->
     <section id="path">
         <div class="container">
             <div class="section-head reveal">
@@ -1742,7 +1776,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= CONTACT SECTION ========================================================= -->
+    <!-- ===== تماس ===== -->
     <section id="contact">
         <div class="container">
             <div class="contact reveal">
@@ -1757,7 +1791,7 @@
         </div>
     </section>
 
-    <!-- ========================================================= FOOTER ========================================================= -->
+    <!-- ===== فوتر ===== -->
     <footer>
         <div class="container footer-inner">
             <div>
@@ -1769,17 +1803,13 @@
         </div>
     </footer>
 
-    <!-- ========================================================= CERTIFICATE IMAGE MODAL ========================================================= -->
+    <!-- ===== مودال تصویر ===== -->
     <div class="cert-modal" id="certModal">
         <img src="" alt="Certificate preview" id="modalImage">
     </div>
 
     <script>
-        /* ========================================================= CONFIGURATION & DATA ========================================================= */
-        /**
-         * CERTIFICATES DATA
-         * مدرک جدید (HP) به عنوان اولین مدرک اضافه شده
-         */
+        /* ========================================================= داده‌های مدارک ========================================================= */
         const certificatesData = [{
             title: "Certificate of Completion",
             course: "Introduction to Cybersecurity Awareness",
@@ -1806,9 +1836,7 @@
             imageUrl: "https://13lz4rfga3.ucarecd.net/0f1207e8-8ffc-4fda-a1a0-081e1e42211e/certificate_e26910ae_en1.jpg"
         }];
 
-        /**
-         * TRANSLATIONS
-         */
+        /* ========================================================= ترجمه‌ها ========================================================= */
         const certTranslations = {
             en: {
                 viewCertificate: "View Certificate",
@@ -1830,12 +1858,12 @@
             }
         };
 
-        /* ========================================================= STATE ========================================================= */
+        /* ========================================================= وضعیت اولیه ========================================================= */
         let currentLanguage = 'en';
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isMobile = window.matchMedia('(max-width: 850px)').matches;
 
-        /* ========================================================= DOM REFERENCES ========================================================= */
+        /* ========================================================= ارجاع‌های DOM ========================================================= */
         const loader = document.getElementById('loader');
         const nav = document.getElementById('nav');
         const menuBtn = document.getElementById('menuBtn');
@@ -1855,19 +1883,15 @@
         const certModal = document.getElementById('certModal');
         const modalImage = document.getElementById('modalImage');
 
-        /* ========================================================= LOADER ========================================================= */
+        /* ========================================================= لودر ========================================================= */
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                loader.classList.add('hide');
-            }, 2300);
+            setTimeout(() => loader.classList.add('hide'), 2300);
         });
         if (document.readyState === 'complete') {
-            setTimeout(() => {
-                loader.classList.add('hide');
-            }, 2300);
+            setTimeout(() => loader.classList.add('hide'), 2300);
         }
 
-        /* ========================================================= CUSTOM CURSOR ========================================================= */
+        /* ========================================================= مکان‌نما ========================================================= */
         if (!isMobile && !prefersReducedMotion) {
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = e.clientX + 'px';
@@ -1883,29 +1907,23 @@
             if (mouseGlow) mouseGlow.style.display = 'none';
         }
 
-        /* ========================================================= NAVBAR SCROLL ========================================================= */
+        /* ========================================================= نوار بالا ========================================================= */
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        /* ========================================================= MOBILE MENU ========================================================= */
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
+        /* ========================================================= منوی موبایل ========================================================= */
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
         });
 
-        /* ========================================================= LANGUAGE SYSTEM ========================================================= */
+        /* ========================================================= سیستم زبان ========================================================= */
         langButton.addEventListener('click', (e) => {
             e.stopPropagation();
             langSwitcher.classList.toggle('open');
         });
-        document.addEventListener('click', () => {
-            langSwitcher.classList.remove('open');
-        });
+        document.addEventListener('click', () => langSwitcher.classList.remove('open'));
         langOptions.forEach(option => {
             option.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1919,24 +1937,19 @@
             document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
             currentLangSpan.textContent = lang === 'fa' ? 'FA' : 'EN';
 
-            document.querySelectorAll('[data-en][data-fa]').forEach(element => {
-                const value = element.dataset[lang];
-                if (value !== undefined) {
-                    element.textContent = value;
-                }
+            document.querySelectorAll('[data-en][data-fa]').forEach(el => {
+                const val = el.dataset[lang];
+                if (val !== undefined) el.textContent = val;
             });
 
             document.title = lang === 'fa' ? 'KWD-CMD — امنیت سایبری' : 'KWD-CMD — Cyber Security';
-
-            langOptions.forEach(option => {
-                option.classList.toggle('active', option.dataset.lang === lang);
-            });
+            langOptions.forEach(opt => opt.classList.toggle('active', opt.dataset.lang === lang));
             langSwitcher.classList.remove('open');
             localStorage.setItem('kwd-language', lang);
             renderCertificates();
         }
 
-        /* ========================================================= TERMINAL TYPING ========================================================= */
+        /* ========================================================= تایپ ترمینال ========================================================= */
         const terminalCommands = [
             'nmap -sV target.local',
             'sudo systemctl status vpn',
@@ -1945,36 +1958,33 @@
             'tcpdump -i eth0',
             'whoami'
         ];
-        let commandIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+        let cmdIdx = 0,
+            charIdx = 0,
+            deleting = false;
 
         function typeCommand() {
-            const current = terminalCommands[commandIndex];
+            const cur = terminalCommands[cmdIdx];
             if (!deleting) {
-                typingEl.textContent = current.substring(0, charIndex++);
-                if (charIndex > current.length) {
+                typingEl.textContent = cur.substring(0, charIdx++);
+                if (charIdx > cur.length) {
                     deleting = true;
                     setTimeout(typeCommand, 1500);
                     return;
                 }
             } else {
-                typingEl.textContent = current.substring(0, charIndex--);
-                if (charIndex < 0) {
+                typingEl.textContent = cur.substring(0, charIdx--);
+                if (charIdx < 0) {
                     deleting = false;
-                    charIndex = 0;
-                    commandIndex = (commandIndex + 1) % terminalCommands.length;
+                    charIdx = 0;
+                    cmdIdx = (cmdIdx + 1) % terminalCommands.length;
                 }
             }
             setTimeout(typeCommand, deleting ? 35 : 75);
         }
-        if (!prefersReducedMotion) {
-            typeCommand();
-        } else {
-            typingEl.textContent = terminalCommands[0];
-        }
+        if (!prefersReducedMotion) typeCommand();
+        else typingEl.textContent = terminalCommands[0];
 
-        /* ========================================================= REVEAL OBSERVER ========================================================= */
+        /* ========================================================= مشاهده‌گر نمایان شدن ========================================================= */
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1983,29 +1993,23 @@
                 }
             });
         }, { threshold: .12 });
-        document.querySelectorAll('.reveal').forEach(el => {
-            revealObserver.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        /* ========================================================= SKILLS ANIMATION ========================================================= */
+        /* ========================================================= انیمیشن مهارت‌ها ========================================================= */
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const bar = entry.target.querySelector('.skill-fill');
                     if (bar) {
-                        setTimeout(() => {
-                            bar.style.width = bar.dataset.width;
-                        }, 200);
+                        setTimeout(() => bar.style.width = bar.dataset.width, 200);
                     }
                     skillObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: .4 });
-        document.querySelectorAll('.skill').forEach(el => {
-            skillObserver.observe(el);
-        });
+        document.querySelectorAll('.skill').forEach(el => skillObserver.observe(el));
 
-        /* ========================================================= TIMELINE ANIMATION ========================================================= */
+        /* ========================================================= تایم‌لاین ========================================================= */
         const timelineObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 timeline.classList.add('active');
@@ -2014,7 +2018,7 @@
         }, { threshold: .2 });
         timelineObserver.observe(timeline);
 
-        /* ========================================================= COUNTER ANIMATION ========================================================= */
+        /* ========================================================= شمارنده‌ها ========================================================= */
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
@@ -2028,40 +2032,33 @@
                     const progress = Math.min((now - start) / duration, 1);
                     value = Math.floor(progress * target);
                     el.textContent = value;
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    } else {
-                        el.textContent = target;
-                    }
+                    if (progress < 1) requestAnimationFrame(update);
+                    else el.textContent = target;
                 }
                 requestAnimationFrame(update);
                 counterObserver.unobserve(el);
             });
         }, { threshold: .6 });
-        document.querySelectorAll('.metric-value').forEach(el => {
-            counterObserver.observe(el);
-        });
+        document.querySelectorAll('.metric-value').forEach(el => counterObserver.observe(el));
 
-        /* ========================================================= 3D TILT EFFECT ========================================================= */
+        /* ========================================================= افکت 3D ========================================================= */
         document.querySelectorAll('.tilt').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 if (window.innerWidth < 850 || prefersReducedMotion) return;
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -4;
-                const rotateY = ((x - centerX) / centerX) * 4;
+                const cx = rect.width / 2,
+                    cy = rect.height / 2;
+                const rx = ((y - cy) / cy) * -4;
+                const ry = ((x - cx) / cx) * 4;
                 card.style.transform =
-                    `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.01)`;
+                    `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-5px) scale(1.01)`;
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
+            card.addEventListener('mouseleave', () => card.style.transform = '');
         });
 
-        /* ========================================================= SECURITY LOG AUTO-UPDATE ========================================================= */
+        /* ========================================================= لاگ امنیتی ========================================================= */
         const logMessages = [
             'packet analyzer ready',
             'network interface detected',
@@ -2074,21 +2071,19 @@
             'lab environment synchronized',
             'monitoring authorized environment'
         ];
-        let logIndex = 0;
+        let logIdx = 0;
         setInterval(() => {
             if (!logsEl) return;
             const line = document.createElement('div');
             line.className = 'log';
             const time = new Date().toLocaleTimeString([], { hour12: false });
-            line.textContent = `[${time}] ${logMessages[logIndex]}`;
+            line.textContent = `[${time}] ${logMessages[logIdx]}`;
             logsEl.appendChild(line);
-            if (logsEl.children.length > 9) {
-                logsEl.removeChild(logsEl.firstElementChild);
-            }
-            logIndex = (logIndex + 1) % logMessages.length;
+            if (logsEl.children.length > 9) logsEl.removeChild(logsEl.firstElementChild);
+            logIdx = (logIdx + 1) % logMessages.length;
         }, 1800);
 
-        /* ========================================================= CERTIFICATES RENDERER ========================================================= */
+        /* ========================================================= رندر مدارک ========================================================= */
         function renderCertificates() {
             if (!certsGrid) return;
             const t = certTranslations[currentLanguage] || certTranslations.en;
@@ -2101,40 +2096,38 @@
                 const hasImage = cert.imageUrl && cert.imageUrl.trim() !== '';
                 const hasViewUrl = cert.certificateUrl && cert.certificateUrl.trim() !== '';
 
-                const thumbnailHtml = hasImage ?
+                const thumb = hasImage ?
                     `<img src="${cert.imageUrl}" alt="${cert.course}" class="cert-thumb" data-full="${cert.imageUrl}">` :
                     '';
 
-                const viewButton = hasViewUrl ?
+                const viewBtn = hasViewUrl ?
                     `<a href="${cert.certificateUrl}" target="_blank" rel="noopener" class="btn btn-view">${t.viewCertificate} ↗</a>` :
                     hasImage ?
                     `<button class="btn btn-view view-image-btn" data-image="${cert.imageUrl}">${t.viewCertificate}</button>` :
                     `<span class="btn btn-view disabled">${t.viewCertificate}</span>`;
 
                 card.innerHTML = `
-                    <div class="cert-status-badge">
-                        <i></i> ${cert.status}
-                    </div>
-                    <div class="cert-title">${cert.title}</div>
-                    <div class="cert-course">${cert.course}</div>
-                    <div class="cert-provider-badge">${cert.provider}</div>
-                    <div class="cert-details">
-                        <span><strong>${t.student}:</strong> ${cert.student}</span>
-                        <span><strong>${t.instructor}:</strong> ${cert.instructor}</span>
-                        <span><strong>${t.date}:</strong> ${cert.date}</span>
-                        <span class="cert-id"><strong>${t.id}:</strong> ${cert.certificateId}</span>
-                        <span><strong>${t.status}:</strong> ${cert.status}</span>
-                    </div>
-                    ${thumbnailHtml}
-                    <div class="cert-actions">
-                        <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn btn-verify">${t.verifyCertificate} ↗</a>
-                        ${viewButton}
-                    </div>
-                `;
+                        <div class="cert-status-badge"><i></i> ${cert.status}</div>
+                        <div class="cert-title">${cert.title}</div>
+                        <div class="cert-course">${cert.course}</div>
+                        <div class="cert-provider-badge">${cert.provider}</div>
+                        <div class="cert-details">
+                            <span><strong>${t.student}:</strong> ${cert.student}</span>
+                            <span><strong>${t.instructor}:</strong> ${cert.instructor}</span>
+                            <span><strong>${t.date}:</strong> ${cert.date}</span>
+                            <span class="cert-id"><strong>${t.id}:</strong> ${cert.certificateId}</span>
+                            <span><strong>${t.status}:</strong> ${cert.status}</span>
+                        </div>
+                        ${thumb}
+                        <div class="cert-actions">
+                            <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn btn-verify">${t.verifyCertificate} ↗</a>
+                            ${viewBtn}
+                        </div>
+                    `;
                 certsGrid.appendChild(card);
             });
 
-            // Attach event listeners for image modal
+            // رویدادهای کلیک برای مودال
             document.querySelectorAll('.cert-thumb').forEach(img => {
                 img.addEventListener('click', (e) => {
                     modalImage.src = e.target.dataset.full;
@@ -2147,30 +2140,28 @@
                     certModal.classList.add('active');
                 });
             });
-            certModal.addEventListener('click', () => {
-                certModal.classList.remove('active');
-            });
+            certModal.addEventListener('click', () => certModal.classList.remove('active'));
         }
 
-        /* ========================================================= PARTICLE NETWORK BACKGROUND ========================================================= */
+        /* ========================================================= ذرات پس‌زمینه ========================================================= */
         (function initParticles() {
             const ctx = particlesCanvas.getContext('2d');
-            let particles = [];
-            let width, height;
+            let particles = [],
+                w, h;
 
             function resize() {
-                width = particlesCanvas.width = window.innerWidth;
-                height = particlesCanvas.height = window.innerHeight;
+                w = particlesCanvas.width = window.innerWidth;
+                h = particlesCanvas.height = window.innerHeight;
             }
 
             function createParticles() {
                 particles = [];
-                const amount = isMobile ? Math.min(50, Math.floor(window.innerWidth / 18)) : Math.min(100, Math.floor(
-                window.innerWidth / 12));
-                for (let i = 0; i < amount; i++) {
+                const count = isMobile ? Math.min(50, Math.floor(window.innerWidth / 18)) : Math.min(100, Math.floor(
+                    window.innerWidth / 12));
+                for (let i = 0; i < count; i++) {
                     particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
+                        x: Math.random() * w,
+                        y: Math.random() * h,
                         vx: (Math.random() - .5) * .35,
                         vy: (Math.random() - .5) * .35,
                         size: Math.random() * 1.5 + .5
@@ -2179,12 +2170,12 @@
             }
 
             function animate() {
-                ctx.clearRect(0, 0, width, height);
+                ctx.clearRect(0, 0, w, h);
                 particles.forEach(p => {
                     p.x += p.vx;
                     p.y += p.vy;
-                    if (p.x < 0 || p.x > width) p.vx *= -1;
-                    if (p.y < 0 || p.y > height) p.vy *= -1;
+                    if (p.x < 0 || p.x > w) p.vx *= -1;
+                    if (p.y < 0 || p.y > h) p.vy *= -1;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctx.fillStyle = 'rgba(53,231,255,.55)';
@@ -2192,16 +2183,16 @@
                 });
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
-                        const a = particles[i];
-                        const b = particles[j];
-                        const dx = a.x - b.x;
-                        const dy = a.y - b.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 130) {
+                        const a = particles[i],
+                            b = particles[j];
+                        const dx = a.x - b.x,
+                            dy = a.y - b.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
                             ctx.beginPath();
                             ctx.moveTo(a.x, a.y);
                             ctx.lineTo(b.x, b.y);
-                            ctx.strokeStyle = `rgba(53,231,255,${(1 - distance/130) * .11})`;
+                            ctx.strokeStyle = `rgba(53,231,255,${(1 - dist/130) * .11})`;
                             ctx.lineWidth = .6;
                             ctx.stroke();
                         }
@@ -2218,14 +2209,11 @@
             });
         })();
 
-        /* ========================================================= INITIALIZATION ========================================================= */
+        /* ========================================================= راه‌اندازی اولیه ========================================================= */
         (function init() {
-            const savedLanguage = localStorage.getItem('kwd-language');
-            if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'fa')) {
-                changeLanguage(savedLanguage);
-            } else {
-                changeLanguage('en');
-            }
+            const saved = localStorage.getItem('kwd-language');
+            if (saved && (saved === 'en' || saved === 'fa')) changeLanguage(saved);
+            else changeLanguage('en');
             renderCertificates();
         })();
     </script>
