@@ -921,11 +921,30 @@
             letter-spacing: .5px;
         }
 
-        /* ===== مدارک (تغییرات اصلی اینجاست) ===== */
+        /* ===== مدارک (تغییرات اصلی) ===== */
+        .certs-section {
+            margin-top: 50px;
+        }
+        .certs-section:first-of-type {
+            margin-top: 0;
+        }
+        .certs-section .section-subhead {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text);
+            border-left: 3px solid var(--cyan);
+            padding-left: 16px;
+        }
+        html[dir="rtl"] .certs-section .section-subhead {
+            border-left: none;
+            border-right: 3px solid var(--cyan);
+            padding-left: 0;
+            padding-right: 16px;
+        }
         .certs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            /* همیشه ۳ ستون */
             gap: 20px;
         }
 
@@ -941,7 +960,6 @@
             flex-direction: column;
             gap: 14px;
             min-height: 380px;
-            /* ارتفاع ثابت برای یکدستی */
         }
         .cert-card::before {
             content: "";
@@ -1038,7 +1056,6 @@
             letter-spacing: 1px;
         }
 
-        /* تصویر مدرک – یکدست و هم‌اندازه */
         .cert-thumb {
             width: 100%;
             height: 170px;
@@ -1319,6 +1336,12 @@
             right: auto;
             left: -100px;
         }
+        html[dir="rtl"] .certs-section .section-subhead {
+            border-left: none;
+            border-right: 3px solid var(--cyan);
+            padding-left: 0;
+            padding-right: 16px;
+        }
 
         /* ===== ریسپانسیو ===== */
         @media (max-width: 850px) {
@@ -1384,7 +1407,6 @@
                 display: none;
             }
 
-            /* مدارک در موبایل به یک ستون */
             .certs-grid {
                 grid-template-columns: 1fr;
             }
@@ -1702,7 +1724,7 @@
         </div>
     </section>
 
-    <!-- ===== مدارک (تغییرات اصلی در بخش داده‌های جاوااسکریپت هم اعمال شده) ===== -->
+    <!-- ===== مدارک (بخش‌بندی جدید) ===== -->
     <section id="certificates">
         <div class="container">
             <div class="section-head reveal">
@@ -1710,7 +1732,8 @@
                 <h2 data-en="Certificates." data-fa="مدارک و گواهی‌ها.">Certificates.</h2>
                 <p data-en="Verified learning achievements and completed technical courses." data-fa="دستاوردهای یادگیری تأییدشده و دوره‌های فنی تکمیل‌شده.">Verified learning achievements and completed technical courses.</p>
             </div>
-            <div class="certs-grid" id="certsGrid"></div>
+            <!-- دو بخش جداگانه توسط جاوااسکریپت رندر می‌شوند -->
+            <div id="certsContainer"></div>
         </div>
     </section>
 
@@ -1811,6 +1834,7 @@
     <script>
         /* ========================================================= داده‌های مدارک ========================================================= */
         const certificatesData = [{
+            category: "international",
             title: "Certificate of Completion",
             course: "Introduction to Cybersecurity Awareness",
             provider: "HP LIFE — HP Foundation",
@@ -1823,6 +1847,7 @@
             certificateUrl: "",
             imageUrl: "https://i.ibb.co/5WYGwqXz/Introduction-to-Cybersecurity-Awareness.png"
         }, {
+            category: "general",
             title: "Certificate of Completion",
             course: "Python Programming Essentials",
             provider: "FaraDars",
@@ -1834,6 +1859,19 @@
             verifyUrl: "https://faradars.org/verify/E26910AE",
             certificateUrl: "",
             imageUrl: "https://13lz4rfga3.ucarecd.net/0f1207e8-8ffc-4fda-a1a0-081e1e42211e/certificate_e26910ae_en1.jpg"
+        }, {
+            category: "general",
+            title: "Certificate of Completion",
+            course: "Network Plus Essentials",
+            provider: "FaraDars",
+            student: "Kian Kheiri",
+            instructor: "Manouchehr Babaei",
+            certificateId: "F105AFEO",
+            date: "August 17, 2026",
+            status: "Completed",
+            verifyUrl: "https://faradars.org/verify/F105AFEO",
+            certificateUrl: "",
+            imageUrl: "https://i.ibb.co/PGLNkvXh/certificate-2.png" // تصویر اضافه شد
         }];
 
         /* ========================================================= ترجمه‌ها ========================================================= */
@@ -1845,7 +1883,9 @@
                 student: "Student",
                 date: "Date",
                 id: "Certificate ID",
-                status: "Status"
+                status: "Status",
+                international: "International Certificates",
+                general: "General Certificates"
             },
             fa: {
                 viewCertificate: "مشاهده مدرک",
@@ -1854,7 +1894,9 @@
                 student: "دانشجو",
                 date: "تاریخ",
                 id: "شناسه مدرک",
-                status: "وضعیت"
+                status: "وضعیت",
+                international: "گواهی‌های بین‌المللی",
+                general: "گواهی‌های عمومی"
             }
         };
 
@@ -1877,7 +1919,7 @@
         const mouseGlow = document.getElementById('mouseGlow');
         const typingEl = document.getElementById('typing');
         const logsEl = document.getElementById('logs');
-        const certsGrid = document.getElementById('certsGrid');
+        const certsContainer = document.getElementById('certsContainer');
         const timeline = document.getElementById('timeline');
         const particlesCanvas = document.getElementById('particles');
         const certModal = document.getElementById('certModal');
@@ -2083,30 +2125,73 @@
             logIdx = (logIdx + 1) % logMessages.length;
         }, 1800);
 
-        /* ========================================================= رندر مدارک ========================================================= */
+        /* ========================================================= رندر مدارک (دو بخشی) ========================================================= */
         function renderCertificates() {
-            if (!certsGrid) return;
+            if (!certsContainer) return;
             const t = certTranslations[currentLanguage] || certTranslations.en;
-            certsGrid.innerHTML = '';
 
-            certificatesData.forEach(cert => {
-                const card = document.createElement('article');
-                card.className = 'cert-card tilt reveal show';
+            // تفکیک بر اساس دسته‌بندی
+            const internationalCerts = certificatesData.filter(c => c.category === 'international');
+            const generalCerts = certificatesData.filter(c => c.category === 'general');
 
-                const hasImage = cert.imageUrl && cert.imageUrl.trim() !== '';
-                const hasViewUrl = cert.certificateUrl && cert.certificateUrl.trim() !== '';
+            let html = '';
 
-                const thumb = hasImage ?
-                    `<img src="${cert.imageUrl}" alt="${cert.course}" class="cert-thumb" data-full="${cert.imageUrl}">` :
-                    '';
+            // بخش بین‌المللی
+            if (internationalCerts.length) {
+                html += `<div class="certs-section reveal show">`;
+                html += `<div class="section-subhead">${t.international}</div>`;
+                html += `<div class="certs-grid">`;
+                internationalCerts.forEach(cert => {
+                    html += buildCertCard(cert, t);
+                });
+                html += `</div></div>`;
+            }
 
-                const viewBtn = hasViewUrl ?
-                    `<a href="${cert.certificateUrl}" target="_blank" rel="noopener" class="btn btn-view">${t.viewCertificate} ↗</a>` :
-                    hasImage ?
-                    `<button class="btn btn-view view-image-btn" data-image="${cert.imageUrl}">${t.viewCertificate}</button>` :
-                    `<span class="btn btn-view disabled">${t.viewCertificate}</span>`;
+            // بخش عمومی
+            if (generalCerts.length) {
+                html += `<div class="certs-section reveal show">`;
+                html += `<div class="section-subhead">${t.general}</div>`;
+                html += `<div class="certs-grid">`;
+                generalCerts.forEach(cert => {
+                    html += buildCertCard(cert, t);
+                });
+                html += `</div></div>`;
+            }
 
-                card.innerHTML = `
+            certsContainer.innerHTML = html;
+
+            // رویدادهای کلیک برای مودال
+            document.querySelectorAll('.cert-thumb').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    modalImage.src = e.target.dataset.full;
+                    certModal.classList.add('active');
+                });
+            });
+            document.querySelectorAll('.view-image-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    modalImage.src = e.target.dataset.image;
+                    certModal.classList.add('active');
+                });
+            });
+            certModal.addEventListener('click', () => certModal.classList.remove('active'));
+        }
+
+        function buildCertCard(cert, t) {
+            const hasImage = cert.imageUrl && cert.imageUrl.trim() !== '';
+            const hasViewUrl = cert.certificateUrl && cert.certificateUrl.trim() !== '';
+
+            const thumb = hasImage ?
+                `<img src="${cert.imageUrl}" alt="${cert.course}" class="cert-thumb" data-full="${cert.imageUrl}">` :
+                '';
+
+            const viewBtn = hasViewUrl ?
+                `<a href="${cert.certificateUrl}" target="_blank" rel="noopener" class="btn btn-view">${t.viewCertificate} ↗</a>` :
+                hasImage ?
+                `<button class="btn btn-view view-image-btn" data-image="${cert.imageUrl}">${t.viewCertificate}</button>` :
+                `<span class="btn btn-view disabled">${t.viewCertificate}</span>`;
+
+            return `
+                    <article class="cert-card tilt reveal show">
                         <div class="cert-status-badge"><i></i> ${cert.status}</div>
                         <div class="cert-title">${cert.title}</div>
                         <div class="cert-course">${cert.course}</div>
@@ -2123,24 +2208,8 @@
                             <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn btn-verify">${t.verifyCertificate} ↗</a>
                             ${viewBtn}
                         </div>
-                    `;
-                certsGrid.appendChild(card);
-            });
-
-            // رویدادهای کلیک برای مودال
-            document.querySelectorAll('.cert-thumb').forEach(img => {
-                img.addEventListener('click', (e) => {
-                    modalImage.src = e.target.dataset.full;
-                    certModal.classList.add('active');
-                });
-            });
-            document.querySelectorAll('.view-image-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    modalImage.src = e.target.dataset.image;
-                    certModal.classList.add('active');
-                });
-            });
-            certModal.addEventListener('click', () => certModal.classList.remove('active'));
+                    </article>
+                `;
         }
 
         /* ========================================================= ذرات پس‌زمینه ========================================================= */
